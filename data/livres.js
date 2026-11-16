@@ -2387,7 +2387,7 @@ window.LC = {
    "matiere": "langues",
    "titre": "Allemand",
    "description": "Prononciation, noms, conjugaison, phrase, négation, cas, nombres, se présenter, vocabulaire et textes modèles.",
-   "pages": 39,
+   "pages": 42,
    "pdf": "docs/allemand-le-colle.pdf",
    "chapitres": [
     {
@@ -2601,13 +2601,13 @@ window.LC = {
     },
     {
      "n": 7,
-     "titre": "Nombres, dates et jours",
-     "intro": "Les nombres allemands se lisent « à l'envers » : l'unité avant la dizaine, le tout en un seul mot. Une fois cette règle acquise, on sait écrire tous les nombres, les années et les dates.",
-     "objectifs": "<ul><li>Compter de 0 à 1000 et au-delà ; écrire un nombre en un mot.</li><li>Lire une année avant et après 2000.</li><li>Dire la date avec jours et mois.</li></ul>",
+     "titre": "Nombres, dates et temps",
+     "intro": "Les nombres allemands se lisent « à l'envers » : l'unité avant la dizaine, le tout en un seul mot. Une fois cette règle acquise, on sait écrire tous les nombres et les années ; les nombres ordinaux donnent ensuite la date complète. Le chapitre se termine par le vocabulaire du temps qui passe (année, saisons, heures) et celui de la naissance et de l'anniversaire.",
+     "objectifs": "<ul><li>Compter de 0 à 1000 et au-delà ; écrire un nombre en un mot.</li><li>Lire une année avant et après 2000.</li><li>Dire la date avec jours et mois ; former les nombres ordinaux.</li><li>Nommer les unités de temps, les saisons ; dire l'heure.</li><li>Parler de sa naissance, de son âge et de son anniversaire.</li></ul>",
      "prerequis": "Chapitre 1.",
-     "essentiel": "<ul><li>Unité + <span class=\"de\">und</span> + dizaine, en un mot : <span class=\"de\">vierundfünfzig</span> ; <span class=\"de\">einundzwanzig</span> mais <span class=\"de\">eins</span> seul.</li><li><span class=\"de\">elf, zwölf, sechzehn, siebzehn, sechzig, siebzig, dreißig</span>.</li><li>Années : centaines jusqu'à 1999, milliers ensuite ; <span class=\"de\">im Jahr 1989</span> ou l'année seule.</li><li><span class=\"de\">Heute haben wir Montag, den 21. September.</span> ; <span class=\"de\">am 18. Januar</span>.</li></ul>",
+     "essentiel": "<ul><li>Unité + <span class=\"de\">und</span> + dizaine, en un mot : <span class=\"de\">vierundfünfzig</span> ; <span class=\"de\">einundzwanzig</span> mais <span class=\"de\">eins</span> seul.</li><li><span class=\"de\">elf, zwölf, sechzehn, siebzehn, sechzig, siebzig, dreißig</span>.</li><li>Années : centaines jusqu'à 1999, milliers ensuite ; <span class=\"de\">im Jahr 1989</span> ou l'année seule.</li><li><span class=\"de\">Heute haben wir Montag, den 21. September.</span> ; <span class=\"de\">am 18. Januar</span>.</li><li>Ordinaux : <strong>-te</strong> jusqu'à 19, <strong>-ste</strong> ensuite ; <span class=\"de\">erste, dritte, siebte</span> ; <span class=\"de\">am ersten Juni</span>.</li><li><span class=\"de\">das Jahr, der Monat, der Tag, die Stunde</span> ; saisons masculines ; <span class=\"de\">Es ist vier Uhr fünfzehn.</span></li><li><span class=\"de\">geboren sein</span> ; <span class=\"de\">Ich bin 20 Jahre alt</span> ; <span class=\"de\">Er hat am 24. April Geburtstag.</span></li></ul>",
      "debut": 23,
-     "fin": 25,
+     "fin": 26,
      "partie": null,
      "sections": [
       {
@@ -2620,7 +2620,7 @@ window.LC = {
       },
       {
        "titre": "Former un nombre",
-       "page": 23
+       "page": 24
       },
       {
        "titre": "Lire une année",
@@ -2629,6 +2629,18 @@ window.LC = {
       {
        "titre": "Jours, mois, date du jour",
        "page": 24
+      },
+      {
+       "titre": "Les nombres ordinaux et la date complète",
+       "page": 25
+      },
+      {
+       "titre": "Le temps qui passe",
+       "page": 25
+      },
+      {
+       "titre": "Naissance, âge, anniversaire",
+       "page": 26
       }
      ],
      "methodes": [
@@ -2646,29 +2658,33 @@ window.LC = {
      "intro": "Ce chapitre réunit tout ce qui précède dans la situation la plus fréquente : saluer, se présenter, présenter quelqu'un. Les phrases sont à apprendre telles quelles.",
      "objectifs": "<ul><li>Saluer et prendre congé selon le moment et le registre.</li><li>Poser et répondre aux questions de présentation.</li><li>Produire une courte présentation orale ou écrite.</li></ul>",
      "prerequis": "Chapitres 3 à 7.",
-     "essentiel": "<ul><li><span class=\"de\">Hallo / Guten Morgen / Guten Tag / Guten Abend</span> ; <span class=\"de\">Tschüss / Auf Wiedersehen</span> ; <span class=\"de\">Freut mich!</span></li><li><span class=\"de\">Ich heiße…, ich komme aus…, ich wohne in…, ich bin in… geboren, ich bin… Jahre alt.</span></li><li>Métier sans article ; <span class=\"de\">geboren</span> avec <span class=\"de\">sein</span> ; <span class=\"de\">meinen besten Freund</span> au COD.</li></ul>",
-     "debut": 26,
-     "fin": 28,
+     "essentiel": "<ul><li><span class=\"de\">Hallo / Guten Morgen / Guten Tag / Guten Abend</span> ; <span class=\"de\">Tschüss / Auf Wiedersehen</span> ; <span class=\"de\">Freut mich!</span></li><li><span class=\"de\">Ich heiße…, ich komme aus…, ich wohne in…, ich bin in… geboren, ich bin… Jahre alt.</span></li><li>Métier sans article ; <span class=\"de\">geboren</span> avec <span class=\"de\">sein</span> ; <span class=\"de\">meinen besten Freund</span> au COD.</li><li>Parler de son meilleur ami : <span class=\"de\">Wie ist der Name deines besten Freundes?</span> ; vouvoiement <span class=\"de\">Ihr</span>, verbe accordé au sujet.</li></ul>",
+     "debut": 27,
+     "fin": 30,
      "partie": null,
      "sections": [
       {
        "titre": "Saluer et prendre congé",
-       "page": 26
+       "page": 27
       },
       {
        "titre": "Se présenter : questions et réponses",
-       "page": 26
+       "page": 27
+      },
+      {
+       "titre": "Parler de son meilleur ami",
+       "page": 28
       },
       {
        "titre": "Petits mots utiles",
-       "page": 27
+       "page": 29
       }
      ],
      "methodes": [
       {
        "num": "8.1",
        "titre": "Présenter quelqu'un (à l'écrit)",
-       "page": 27
+       "page": 28
       }
      ],
      "pdf": "docs/allemand-le-colle/chapitre-08.pdf"
@@ -2680,37 +2696,37 @@ window.LC = {
      "objectifs": "<ul><li>Parler de ses études, de son métier, des langues.</li><li>Nommer l'entourage.</li><li>Situer une ville ou un pays ; connaître les pays voisins.</li><li>Vocabulaire de la vie quotidienne et des dates historiques.</li></ul>",
      "prerequis": "Chapitres 2 et 6.",
      "essentiel": "<ul><li>Études : <span class=\"de\">Ich studiere Elektronik</span> (sans article) ; langues avec majuscule et sans article.</li><li>Situer : <span class=\"de\">X liegt im Osten von…, an der Donau, in der Nähe von…, an der Grenze zu…</span></li><li><span class=\"de\">die Schweiz</span>, <span class=\"de\">die Niederlande</span>, <span class=\"de\">die Tschechische Republik</span> : avec article.</li><li><span class=\"de\">der See</span> (lac) / <span class=\"de\">die See</span> (mer) ; une ville se reprend par <span class=\"de\">es</span>.</li></ul>",
-     "debut": 29,
-     "fin": 35,
+     "debut": 31,
+     "fin": 37,
      "partie": null,
      "sections": [
       {
        "titre": "Études, métiers, langues",
-       "page": 29
-      },
-      {
-       "titre": "L'entourage",
-       "page": 30
-      },
-      {
-       "titre": "Géographie : se situer",
        "page": 31
       },
       {
-       "titre": "Pays et langues",
+       "titre": "L'entourage",
        "page": 32
       },
       {
-       "titre": "Fiches de villes",
+       "titre": "Géographie : se situer",
        "page": 33
+      },
+      {
+       "titre": "Pays et langues",
+       "page": 34
+      },
+      {
+       "titre": "Fiches de villes",
+       "page": 35
       },
       {
        "titre": "Vie quotidienne",
-       "page": 33
+       "page": 35
       },
       {
        "titre": "Histoire : vocabulaire des dates",
-       "page": 34
+       "page": 36
       }
      ],
      "methodes": [],
@@ -2723,21 +2739,25 @@ window.LC = {
      "objectifs": "<ul><li>Présenter un camarade à l'écrit (tutoiement et vouvoiement).</li><li>Comprendre un dialogue simple et repérer qui fait quoi.</li><li>Voir tout le cours réutilisé dans des phrases complètes.</li></ul>",
      "prerequis": "Chapitres 1 à 9.",
      "essentiel": "",
-     "debut": 36,
-     "fin": 37,
+     "debut": 38,
+     "fin": 40,
      "partie": null,
      "sections": [
       {
        "titre": "Présenter un camarade (à l'écrit)",
-       "page": 36
+       "page": 38
+      },
+      {
+       "titre": "Présenter son meilleur ami",
+       "page": 39
       },
       {
        "titre": "Compréhension orale : Sarah, Dana et la professeure",
-       "page": 37
+       "page": 39
       },
       {
        "titre": "Wer spricht ? Wer studiert ? (séance du 12 octobre)",
-       "page": 37
+       "page": 39
       }
      ],
      "methodes": [],
@@ -2750,25 +2770,25 @@ window.LC = {
      "objectifs": "",
      "prerequis": "",
      "essentiel": "",
-     "debut": 38,
-     "fin": 39,
+     "debut": 41,
+     "fin": 42,
      "partie": null,
      "sections": [
       {
        "titre": "Phrases modèles",
-       "page": 38
+       "page": 41
       },
       {
        "titre": "La place du verbe",
-       "page": 38
+       "page": 41
       },
       {
        "titre": "Les tableaux à savoir",
-       "page": 38
+       "page": 41
       },
       {
        "titre": "Pièges fréquents",
-       "page": 39
+       "page": 42
       }
      ],
      "methodes": [],
