@@ -9,7 +9,7 @@ window.LC = {
   {
    "id": "numerique",
    "titre": "Numérique et informatique",
-   "description": "Logique, circuits numériques et conception d'algorithmes."
+   "description": "Logique, circuits numériques, architecture des processeurs et conception d'algorithmes."
   },
   {
    "id": "physique",
@@ -504,7 +504,7 @@ window.LC = {
    "matiere": "numerique",
    "titre": "Conception des systèmes logiques",
    "description": "Algèbre de Boole, codage, logique CMOS, circuits combinatoires et séquentiels, mémoires et composants programmables.",
-   "pages": 56,
+   "pages": 57,
    "pdf": "docs/conception-systemes-logiques.pdf",
    "chapitres": [
     {
@@ -886,7 +886,7 @@ window.LC = {
      "prerequis": "Chapitres 3, 4 et 5.",
      "essentiel": "<ul><li>$2^n$ mots de $m$ bits ; $\\nb{CS}$, $R/\\nb W$ ; décodeurs de lignes et de colonnes.</li><li>SRAM : bistable, 6 transistors, volatile. DRAM : condensateur, 3 ou 1 transistor, rafraîchissement ($\\Delta t=C_P\\,\\Delta V/I_f$), plus dense, moins chère.</li><li>ROM : masque ; PROM : fusibles, une fois ; EPROM : grille flottante, effacement UV ; EEPROM : effacement électrique sur site.</li></ul>",
      "debut": 49,
-     "fin": 52,
+     "fin": 53,
      "partie": null,
      "sections": [
       {
@@ -903,11 +903,11 @@ window.LC = {
       },
       {
        "titre": "Mémoires vives : SRAM et DRAM",
-       "page": 50
+       "page": 51
       },
       {
        "titre": "Mémoires mortes",
-       "page": 51
+       "page": 52
       }
      ],
      "methodes": [],
@@ -920,35 +920,381 @@ window.LC = {
      "objectifs": "<ul><li>Connaître le vocabulaire : ASIC, PLD, PLA, PAL, CPLD, FPGA.</li><li>Utiliser une mémoire ou un PAL comme générateur de fonctions.</li><li>Décrire l'architecture d'un FPGA : blocs logiques (LUT), entrées/sorties, routage, flot de conception.</li></ul>",
      "prerequis": "Chapitres 4, 5 et 8.",
      "essentiel": "<ul><li>Mémoire : ET fixe, OU programmable ; PAL : ET programmable, OU fixe ; PLA : les deux programmables.</li><li>PAL $+$ bascule $+$ macrocellule $=$ EPLD ; EPLD en blocs $+$ matrice d'interconnexion $=$ CPLD.</li><li>FPGA : blocs logiques (LUT $+$ bascule D), blocs d'E/S, routage programmable ; remplissage $\\le75$ %.</li><li>Flot : description (VHDL), synthèse, simulation, placement-routage, simulation temporelle, configuration.</li></ul>",
-     "debut": 53,
-     "fin": 56,
+     "debut": 54,
+     "fin": 57,
      "partie": null,
      "sections": [
       {
        "titre": "Définitions et historique",
-       "page": 53
+       "page": 54
       },
       {
        "titre": "La mémoire comme composant programmable",
-       "page": 54
+       "page": 55
       },
       {
        "titre": "PAL, EPLD et CPLD",
-       "page": 54
+       "page": 55
       },
       {
        "titre": "Les FPGA",
-       "page": 54
+       "page": 56
       }
      ],
      "methodes": [
       {
        "num": "9.1",
        "titre": "Flot de conception sur FPGA",
-       "page": 55
+       "page": 56
       }
      ],
      "pdf": "docs/conception-systemes-logiques/chapitre-09.pdf"
+    }
+   ]
+  },
+  {
+   "id": "architecture-assembleur",
+   "matiere": "numerique",
+   "titre": "Architecture et programmation en assembleur",
+   "description": "Codage, architecture de Von Neumann, processeur EROS et micro-instructions, modes d'adressage, mémoire et décodage, interfaçage, interruptions.",
+   "pages": 57,
+   "pdf": "docs/architecture-assembleur.pdf",
+   "chapitres": [
+    {
+     "n": 1,
+     "titre": "Codage : ce que manipule le processeur",
+     "intro": "Un processeur ne connaît que des mots de bits de taille fixe. Qu'un octet représente un entier, un caractère, un chiffre décimal ou une instruction, c'est le <em>programme</em> qui en décide. Ce chapitre rassemble ce qu'il faut savoir de ces codages pour programmer en assembleur ; les démonstrations générales (complément à 2, virgule fixe, IEEE 754, Gray) sont dans le livre <em>Conception des systèmes logiques</em>, chapitre 2, et ne sont pas refaites ici.",
+     "objectifs": "<ul><li>Passer sans calcul du binaire à l'octal et à l'hexadécimal.</li><li>Lire un même octet comme entier non signé ou signé, et savoir quand le résultat d'une opération est faux.</li><li>Comprendre d'où viennent les indicateurs C, V et Z que testera le programme.</li><li>Corriger une addition en BCD ; détecter une erreur de transmission par parité ou par code $p$ parmi $n$.</li></ul>",
+     "prerequis": "Numération binaire, complément à 2.",
+     "essentiel": "<ul><li>$n$ bits $\\to2^n$ combinaisons ; 1 ko $=1024$ o. Hexa : 4 bits par chiffre, regroupés depuis la droite.</li><li>Le processeur additionne modulo $2^n$. C signale un dépassement en non signé, V en complément à 2 ($V=c_n\\xor c_{n-1}$), Z un résultat nul.</li><li>BCD : corriger par $+6$ toute somme de chiffres supérieure à 9.</li><li>La parité détecte un nombre impair d'erreurs ; un code $p$ parmi $n$ détecte les erreurs isolées. Aucun des deux ne corrige.</li></ul>",
+     "debut": 5,
+     "fin": 10,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Mots binaires et unités",
+       "page": 5
+      },
+      {
+       "titre": "Octal et hexadécimal : des écritures compactes du binaire",
+       "page": 5
+      },
+      {
+       "titre": "Entiers signés et indicateurs de l'ALU",
+       "page": 6
+      },
+      {
+       "titre": "Nombres non entiers : virgule fixe et virgule flottante",
+       "page": 8
+      },
+      {
+       "titre": "Codes décimaux et arithmétique BCD",
+       "page": 9
+      },
+      {
+       "titre": "Codes à distance unité et caractères",
+       "page": 9
+      },
+      {
+       "titre": "Codes détecteurs d'erreurs",
+       "page": 10
+      }
+     ],
+     "methodes": [
+      {
+       "num": "1.1",
+       "titre": "Soustraire en excédent 3",
+       "page": 9
+      }
+     ],
+     "pdf": "docs/architecture-assembleur/chapitre-01.pdf"
+    },
+    {
+     "n": 2,
+     "titre": "L'architecture de Von Neumann",
+     "intro": "Un microprocesseur n'est rien d'autre qu'une machine à calculer <em>programmable</em>. Ce chapitre explique ce que « programmable » exige : une mémoire qui contient à la fois le programme et les données, une unité qui va y chercher les instructions une à une, et un organe de calcul. C'est l'architecture décrite par John von Neumann en 1945, toujours celle de nos ordinateurs.",
+     "objectifs": "<ul><li>Situer le processeur dans l'empilement des couches, du transistor à l'application.</li><li>Énoncer les quatre organes de la machine de Von Neumann et leur rôle.</li><li>Décrire le cycle recherche – décodage – exécution et le rôle du compteur programme.</li><li>Expliquer pourquoi le processeur a besoin de registres et de bus.</li></ul>",
+     "prerequis": "Portes logiques, registres, mémoires (livre <em>Conception des systèmes logiques</em>).",
+     "essentiel": "<ul><li>Un processeur est une machine à calculer programmable : il exécute une suite d'instructions lues en mémoire.</li><li>Von Neumann : une mémoire unique (programme <em>et</em> données), une ALU, une unité d'échange, une unité de commande ; trois bus (adresses, données, contrôle).</li><li>Chaque instruction suit le cycle recherche – décodage – exécution, cadencé par l'horloge ; le PC pointe l'instruction suivante, l'IR contient l'instruction courante.</li></ul>",
+     "debut": 11,
+     "fin": 14,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Du transistor au programme : les couches",
+       "page": 11
+      },
+      {
+       "titre": "De la calculatrice au processeur",
+       "page": 12
+      },
+      {
+       "titre": "Les organes du processeur",
+       "page": 13
+      },
+      {
+       "titre": "Repères historiques",
+       "page": 14
+      }
+     ],
+     "methodes": [],
+     "pdf": "docs/architecture-assembleur/chapitre-02.pdf"
+    },
+    {
+     "n": 3,
+     "titre": "Le processeur EROS, instruction par instruction",
+     "intro": "Pour comprendre ce qui se passe réellement dans un processeur, on construit un calculateur 8 bits volontairement simple, <span>EROS</span>, puis on suit l'exécution de trois instructions au rythme de l'horloge. Tout processeur réel fonctionne sur ce principe ; seules la taille des mots et l'ingéniosité du chemin de données changent.",
+     "objectifs": "<ul><li>Décrire le chemin de données d'EROS : registres, ALU, PC, AR, registre d'instruction, bus.</li><li>Coder une instruction en langage machine à partir de son format.</li><li>Décomposer l'exécution d'une instruction en micro-instructions, cycle par cycle.</li><li>Évaluer la durée d'exécution d'un programme.</li></ul>",
+     "prerequis": "Chapitre 2 ; multiplexeurs, registres, ALU.",
+     "essentiel": "<ul><li>EROS : bus de 8 bits, 256 adresses, 8 registres, une ALU à indicateurs C V Z, un PC auto-incrémenté, un registre d'adresse AR et un registre d'instruction IH:IL.</li><li>Format : code opération 7 bits | RD | RA | RB (3 bits chacun), éventuellement suivi d'un octet d'opérande.</li><li>Recherche en 4 cycles (AR$\\aff$PC, IH$\\aff$M[AR], AR$\\aff$PC, IL$\\aff$M[AR]), puis exécution : 1 cycle entre registres, 2 avec une constante, 3 avec une adresse en opérande.</li><li>$T_{\\text{exec}}=N_i\\,\\overline N_{\\text{cycles}}\\,T_H$.</li></ul>",
+     "debut": 15,
+     "fin": 21,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Choix des formats",
+       "page": 15
+      },
+      {
+       "titre": "Le chemin de données",
+       "page": 16
+      },
+      {
+       "titre": "Format d'une instruction",
+       "page": 17
+      },
+      {
+       "titre": "Première instruction : charger une constante",
+       "page": 17
+      },
+      {
+       "titre": "Deuxième instruction : une addition entre registres",
+       "page": 18
+      },
+      {
+       "titre": "Troisième instruction : ranger un registre en mémoire",
+       "page": 19
+      },
+      {
+       "titre": "L'unité de contrôle et le séquenceur",
+       "page": 19
+      },
+      {
+       "titre": "Performances",
+       "page": 20
+      },
+      {
+       "titre": "Langage machine, assembleur et langage évolué",
+       "page": 21
+      }
+     ],
+     "methodes": [
+      {
+       "num": "3.1",
+       "titre": "Coder une instruction en langage machine",
+       "page": 17
+      }
+     ],
+     "pdf": "docs/architecture-assembleur/chapitre-03.pdf"
+    },
+    {
+     "n": 4,
+     "titre": "Jeu d'instructions et modes d'adressage",
+     "intro": "Trois instructions ont suffi à parcourir tous les chemins du processeur. On peut maintenant dresser la liste complète des instructions d'EROS, puis les classer selon la façon dont elles désignent leurs opérandes : c'est la notion de <em>mode d'adressage</em>, la clé pour manipuler des variables et des tableaux.",
+     "objectifs": "<ul><li>Connaître les quatre familles d'instructions d'EROS.</li><li>Distinguer décalage logique, décalage arithmétique et rotation.</li><li>Identifier le mode d'adressage d'une instruction et calculer l'adresse effective de son opérande.</li><li>Parcourir un tableau avec l'adressage indexé.</li></ul>",
+     "prerequis": "Chapitre 3.",
+     "essentiel": "<ul><li>Quatre familles : arithmétique et logique (positionnent C V Z), décalages et rotations, instructions particulières (<code>stc</code>, <code>clc</code>, <code>nop</code>, <code>hlt</code>), déplacements.</li><li><code>lsl</code>/<code>lsr</code> : $\\times2$ et $\\div2$ non signés ; <code>asr</code> : $\\div2$ signé ; le bit sorti tombe dans C.</li><li>Modes d'adressage : immédiat (la donnée), absolu (son adresse), indirect (un registre contient l'adresse), indexé (adresse $=$ base $+$ déplacement).</li><li>Un tableau se parcourt en faisant varier un registre d'indice ; l'adressage indexé en donne l'élément courant.</li></ul>",
+     "debut": 22,
+     "fin": 25,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Les instructions d'EROS",
+       "page": 22
+      },
+      {
+       "titre": "Les modes d'adressage",
+       "page": 24
+      },
+      {
+       "titre": "Tableaux et adressage indexé",
+       "page": 25
+      }
+     ],
+     "methodes": [
+      {
+       "num": "4.1",
+       "titre": "Parcourir un tableau",
+       "page": 26
+      }
+     ],
+     "pdf": "docs/architecture-assembleur/chapitre-04.pdf"
+    },
+    {
+     "n": 5,
+     "titre": "Traduire un algorithme en assembleur",
+     "intro": "Avec les instructions vues jusqu'ici, un programme s'exécute de façon purement linéaire : le PC avance d'une instruction à la suivante. Pour programmer un test ou une boucle, il faut pouvoir <em>rompre la séquence</em>, c'est-à-dire écrire une nouvelle valeur dans le PC. Ce chapitre montre comment les structures de l'algorithmique (si, pour, tant que) se traduisent avec ces seuls sauts.",
+     "objectifs": "<ul><li>Expliquer l'exécution d'un saut au niveau du PC.</li><li>Utiliser les indicateurs C, V, Z et l'instruction <code>cmp</code> pour réaliser un test.</li><li>Traduire un SI… SINON, une boucle POUR et une boucle FAIRE… TANT QUE.</li><li>Représenter un programme par un organigramme.</li></ul>",
+     "prerequis": "Chapitres 1 (indicateurs) et 4.",
+     "essentiel": "<ul><li>Un saut écrit une nouvelle adresse dans le PC. <code>bra</code> : toujours ; <code>bz</code>/<code>bnz</code>, <code>bc</code>/<code>bnc</code>, <code>bv</code>/<code>bnv</code> : selon l'indicateur.</li><li>Un saut conditionnel teste le résultat de la <em>dernière</em> opération de l'ALU ; <code>cmp RA,RB</code> calcule RA$-$RB pour tester l'égalité (Z) ou, en non signé, l'ordre (C).</li><li>SI… SINON : un saut conditionnel vers ALORS et un <code>bra</code> en fin de SINON. POUR : test de sortie en tête et <code>bra</code> de retour. FAIRE… TANT QUE : un seul saut conditionnel en fin de boucle.</li></ul>",
+     "debut": 26,
+     "fin": 31,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Rompre la séquence : le saut inconditionnel",
+       "page": 27
+      },
+      {
+       "titre": "Les sauts conditionnels",
+       "page": 28
+      },
+      {
+       "titre": "Représenter un programme : l'organigramme",
+       "page": 29
+      },
+      {
+       "titre": "Traduire un SI…ALORS…SINON",
+       "page": 29
+      },
+      {
+       "titre": "Traduire une boucle POUR",
+       "page": 30
+      },
+      {
+       "titre": "Traduire une boucle FAIRE…TANT QUE",
+       "page": 30
+      },
+      {
+       "titre": "Pourquoi programmer encore en assembleur ?",
+       "page": 31
+      }
+     ],
+     "methodes": [],
+     "pdf": "docs/architecture-assembleur/chapitre-05.pdf"
+    },
+    {
+     "n": 6,
+     "titre": "La mémoire vue du processeur",
+     "intro": "EROS supposait une mémoire unique, exactement aussi grande que son espace adressable. Un vrai système assemble plusieurs boîtiers, de types et de tailles différents (RAM, FLASH, EPROM), sur les mêmes bus. Deux questions se posent alors : comment le processeur distingue-t-il les boîtiers, et comment évite-t-on qu'ils parlent tous à la fois sur le bus de données ? On y répond d'abord de façon statique (le <em>décodage d'adresse</em>), puis dynamique (les <em>chronogrammes</em> d'échange).",
+     "objectifs": "<ul><li>Distinguer espace adressable et mémoire physique ; dresser une carte mémoire.</li><li>Établir une table de décodage et les équations de sélection des boîtiers.</li><li>Associer des boîtiers en parallèle pour élargir le bus de données.</li><li>Lire un chronogramme de lecture et d'écriture ; vérifier la compatibilité des temps d'accès.</li></ul>",
+     "prerequis": "Chapitre 3 ; mémoires et décodeurs (livre <em>Conception des systèmes logiques</em>, §4 et §8).",
+     "essentiel": "<ul><li>Mémoire physique $\\le$ espace adressable ; un boîtier de $2^k$ cases reçoit A0–A$_{k-1}$, les bits de poids fort servent à le sélectionner.</li><li>Table de décodage : plages de début et fin en binaire ; un boîtier de $2^k$ cases doit commencer sur un multiple de $2^k$. Sélection $=$ produit des bits fixes ; on la complémente pour un $\\nb{CS}$ actif bas.</li><li>Un boîtier non sélectionné est en haute impédance : pas de conflit sur le bus de données si les plages sont disjointes.</li><li>Parallèle : élargit le mot ; décodage : augmente le nombre de mots.</li><li>Lecture : adresse, sélection, attente de $t_{\\text{acc}}$, lecture, désélection, HZ. Synchrone : vérifier $t_{\\text{déc}}+t_{\\text{acc}}\\le t_{\\text{disponible}}$ ; asynchrone : dialogue par signaux de validité.</li></ul>",
+     "debut": 32,
+     "fin": 38,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Rappels sur les mémoires",
+       "page": 32
+      },
+      {
+       "titre": "Espace adressable et mémoire physique",
+       "page": 33
+      },
+      {
+       "titre": "Le décodage d'adresse",
+       "page": 34
+      },
+      {
+       "titre": "Aspects dynamiques : les chronogrammes",
+       "page": 37
+      }
+     ],
+     "methodes": [
+      {
+       "num": "6.1",
+       "titre": "Établir une table de décodage",
+       "page": 34
+      }
+     ],
+     "pdf": "docs/architecture-assembleur/chapitre-06.pdf"
+    },
+    {
+     "n": 7,
+     "titre": "Interfaçage avec le monde extérieur",
+     "intro": "Un processeur qui ne communique qu'avec sa mémoire ne sert à rien : il doit lire des capteurs, commander des actionneurs, échanger avec d'autres machines. Ce chapitre montre que presque toutes les interfaces reposent sur un seul principe, celui des <em>registres d'échange</em> placés dans l'espace adressable. On le construit sur un exemple minimal, puis on l'applique à trois familles de circuits spécialisés : ports parallèles, temporisateurs et convertisseurs.",
+     "objectifs": "<ul><li>Réaliser un registre de commande (bascules D) et un registre d'état (tampons trois états).</li><li>Placer des registres d'entrées–sorties dans l'espace adressable et écrire leur décodage.</li><li>Programmer un port parallèle et un timer à partir de leur modèle de registres.</li><li>Décrire une chaîne de conversion analogique–numérique et la caractéristique d'un convertisseur.</li></ul>",
+     "prerequis": "Chapitre 6 ; bascules D, tampons trois états.",
+     "essentiel": "<ul><li>Toute interface se programme à travers des registres (données, contrôle, état) placés dans l'espace adressable.</li><li>Sortie : bascules D (mémoriser) ; entrée : tampons trois états (isoler le bus).</li><li>Décodage EROS : RAM en 0–247, registres en 248–255 sélectionnés par $A_7A_6A_5A_4A_3$, puis A2–A0.</li><li>Un composant programmable s'initialise (registre de contrôle) avant de s'utiliser (registres de données).</li><li>CAN : $q=\\text{PE}/2^n$, $N=\\mathrm{INT}(V_e/q+0{,}5)$, erreur $\\pm q/2$ ; filtre anti-repliement à $F_e/2$ avant l'échantillonneur. CNA R–2R : $V_s=-V_{\\text{ref}}N/2^n$.</li></ul>",
+     "debut": 39,
+     "fin": 48,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Les familles d'interfaces",
+       "page": 39
+      },
+      {
+       "titre": "Un cas d'étude : piloter une maquette",
+       "page": 40
+      },
+      {
+       "titre": "Placer les registres dans l'espace adressable",
+       "page": 41
+      },
+      {
+       "titre": "Séquence d'accès à un registre",
+       "page": 42
+      },
+      {
+       "titre": "Composants spécialisés : le port parallèle",
+       "page": 43
+      },
+      {
+       "titre": "Le timer programmable",
+       "page": 44
+      },
+      {
+       "titre": "Conversion analogique–numérique et numérique–analogique",
+       "page": 45
+      },
+      {
+       "titre": "Microprocesseur et microcontrôleur",
+       "page": 48
+      }
+     ],
+     "methodes": [],
+     "pdf": "docs/architecture-assembleur/chapitre-07.pdf"
+    },
+    {
+     "n": 8,
+     "titre": "Se synchroniser sur les événements : scrutation et interruptions",
+     "intro": "Nous disposons maintenant d'un système numérique minimal capable de commander un processus physique : il lit des capteurs et pilote des actionneurs à travers ses registres d'interface. Mais un programme s'exécute <em>séquentiellement</em>, une instruction après l'autre, alors que les événements extérieurs (le passage d'un objet devant un capteur, la fin d'une conversion, l'arrivée d'un caractère) surviennent à des instants imprévisibles. Comment le processeur peut-il s'y synchroniser ? Deux réponses : aller voir régulièrement (<em>scrutation</em>), ou se faire prévenir (<em>interruption</em>).",
+     "objectifs": "<ul><li>Écrire une boucle de scrutation et en identifier les défauts (échantillonnage, occupation du processeur).</li><li>Décrire le mécanisme d'une interruption : sauvegarde et restitution du contexte, pile, temps de latence.</li><li>Expliquer la table des vecteurs, les priorités et le masquage des interruptions.</li><li>Évaluer si un traitement par interruption respecte une période d'échantillonnage.</li></ul>",
+     "prerequis": "Chapitres 5 et 7.",
+     "essentiel": "<ul><li>Scrutation : le programme lit l'état en boucle ; il échantillonne l'événement à la période de sa boucle (risque de manquer ou de compter plusieurs fois un événement) et monopolise le processeur.</li><li>Interruption : un signal déclenche une rupture de séquence ; sauvegarde du contexte (PC, registres) dans la pile, saut à l'adresse lue dans la table des vecteurs, traitement court, restitution, reprise.</li><li>Latence $=$ délai entre l'événement et le début du traitement (fin d'instruction, sauvegarde, lecture du vecteur).</li><li>Priorités : une IRQ plus prioritaire interrompt une IRQ moins prioritaire ; une IRQ de priorité inférieure ou égale est masquée et différée. GIE autorise globalement les IT. Le chien de garde relance un système bloqué.</li><li>Le traitement doit durer nettement moins que la période d'échantillonnage.</li></ul>",
+     "debut": 49,
+     "fin": 57,
+     "partie": null,
+     "sections": [
+      {
+       "titre": "Le problème : compter les tours de PINGOO",
+       "page": 49
+      },
+      {
+       "titre": "Le contrôle par scrutation",
+       "page": 50
+      },
+      {
+       "titre": "Le contrôle par interruptions",
+       "page": 51
+      },
+      {
+       "titre": "Plusieurs interruptions",
+       "page": 53
+      },
+      {
+       "titre": "Limites du traitement par interruptions",
+       "page": 55
+      },
+      {
+       "titre": "Bilan : scrutation ou interruptions ?",
+       "page": 56
+      }
+     ],
+     "methodes": [],
+     "pdf": "docs/architecture-assembleur/chapitre-08.pdf"
     }
    ]
   },
@@ -1650,8 +1996,8 @@ window.LC = {
    "id": "physique-des-materiaux",
    "matiere": "physique",
    "titre": "Physique des matériaux",
-   "description": "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, matériaux magnétiques.",
-   "pages": 36,
+   "description": "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, sphères polarisée et aimantée, matériaux magnétiques.",
+   "pages": 41,
    "pdf": "docs/physique-des-materiaux.pdf",
    "chapitres": [
     {
@@ -1736,7 +2082,7 @@ window.LC = {
      "prerequis": "Chapitre 2.",
      "essentiel": "<ul><li>Charges de polarisation : $\\rho_P=-\\Div\\V P$, $\\sigma_P=\\V P\\cdot\\V n$ (nulle en volume si $\\V P$ uniforme).</li><li>$\\V D=\\varepsilon_0\\V E+\\V P$, $\\Div\\V D=\\rho_\\libre$ ; $\\V P=\\varepsilon_0\\chi_e\\V E$, $\\varepsilon_r=1+\\chi_e$, $\\V D=\\varepsilon\\V E$.</li><li>Condensateur : $C_0=\\varepsilon_0S/e$ ; avec diélectrique (charges fixes) $\\V E=\\V E_0/\\varepsilon_r$, $C=\\varepsilon_rC_0$.</li><li>Interface : $E_T$ continu ; $D_{N2}-D_{N1}=\\sigma_S$ ; $\\tan\\theta_1/\\tan\\theta_2=\\varepsilon_{r1}/\\varepsilon_{r2}$.</li><li>Énergie : $\\diff u=\\V E\\cdot\\diff\\V D$ ; linéaire $u=\\tfrac12\\varepsilon E^2$.</li></ul>",
      "debut": 15,
-     "fin": 19,
+     "fin": 22,
      "partie": null,
      "sections": [
       {
@@ -1757,11 +2103,15 @@ window.LC = {
       },
       {
        "titre": "Conditions de passage entre deux diélectriques",
-       "page": 18
+       "page": 19
+      },
+      {
+       "titre": "La sphère diélectrique",
+       "page": 20
       },
       {
        "titre": "Énergie électrique",
-       "page": 19
+       "page": 21
       }
      ],
      "methodes": [],
@@ -1774,29 +2124,29 @@ window.LC = {
      "objectifs": "<ul><li>Calculer le champ local par la cavité de Lorentz.</li><li>Relier polarisabilité et susceptibilité (milieu dense, milieu dilué).</li><li>Établir et utiliser la formule de Clausius–Mossotti.</li><li>Connaître les facteurs influant sur la permittivité ; ferroélectricité et piézoélectricité.</li></ul>",
      "prerequis": "Chapitres 2 et 3.",
      "essentiel": "<ul><li>Champ local (dense) : $\\V E_\\loc=\\V E+\\V P/3\\varepsilon_0$ ; dilué : $\\V E_\\loc=\\V E$.</li><li>$\\V P=n\\alpha\\V E_\\loc$ ; dense : $\\chi_e=\\dfrac{n\\alpha/\\varepsilon_0}{1-n\\alpha/3\\varepsilon_0}$ ; dilué : $\\chi_e=n\\alpha/\\varepsilon_0$.</li><li>Clausius–Mossotti : $\\dfrac{\\varepsilon_r-1}{\\varepsilon_r+2}=\\dfrac{n\\alpha}{3\\varepsilon_0}$.</li><li>Ferroélectrique : polarisation spontanée, hystérésis, $n\\alpha/3\\varepsilon_0\\to1$ ; piézoélectrique : couplage mécanique–électrique.</li></ul>",
-     "debut": 20,
-     "fin": 23,
+     "debut": 23,
+     "fin": 26,
      "partie": null,
      "sections": [
       {
        "titre": "Le champ local",
-       "page": 20
+       "page": 23
       },
       {
        "titre": "Polarisabilité et susceptibilité",
-       "page": 21
+       "page": 24
       },
       {
        "titre": "Facteurs influant sur la permittivité",
-       "page": 22
+       "page": 25
       },
       {
        "titre": "Ferroélectricité",
-       "page": 22
+       "page": 25
       },
       {
        "titre": "Piézoélectricité",
-       "page": 23
+       "page": 26
       }
      ],
      "methodes": [],
@@ -1809,21 +2159,21 @@ window.LC = {
      "objectifs": "<ul><li>Établir la polarisabilité électronique complexe $\\alpha(\\omega)$.</li><li>Connaître l'allure de la polarisabilité totale sur le spectre.</li><li>Définir $\\varepsilon_r(\\omega)=\\varepsilon_r'+j\\varepsilon_r''$ et la tangente de pertes.</li><li>Calculer la puissance moyenne absorbée par un diélectrique.</li></ul>",
      "prerequis": "Chapitres 2 à 4 ; régime sinusoïdal forcé.",
      "essentiel": "<ul><li>Électron élastiquement lié : $\\ddot{\\V r}+\\lambda\\dot{\\V r}+\\omega_0^2\\V r=-\\frac em\\V E$ ; $\\alpha=\\dfrac{e^2/m}{\\omega_0^2-\\omega^2+j\\lambda\\omega}$.</li><li>Résonances : orientation (RF), ionique (IR), électronique (visible, UV).</li><li>$\\varepsilon_r=\\varepsilon_r'+j\\varepsilon_r''$, $\\tan\\delta=|\\varepsilon_r''/\\varepsilon_r'|$.</li><li>Pertes : $\\moy{\\diff P/\\diff\\tau}=-\\tfrac12\\varepsilon_0\\varepsilon_r''\\omega E_0^2&gt;0$.</li></ul>",
-     "debut": 24,
-     "fin": 27,
+     "debut": 27,
+     "fin": 30,
      "partie": null,
      "sections": [
       {
        "titre": "Polarisation électronique en régime variable",
-       "page": 24
+       "page": 27
       },
       {
        "titre": "Permittivité complexe",
-       "page": 25
+       "page": 28
       },
       {
        "titre": "Pertes diélectriques",
-       "page": 26
+       "page": 29
       }
      ],
      "methodes": [],
@@ -1836,29 +2186,29 @@ window.LC = {
      "objectifs": "<ul><li>Définir le dipôle magnétique et le vecteur aimantation $\\V M$.</li><li>Établir les courants d'aimantation $\\V j_M=\\rot\\V M$ et $\\V j_{SM}=\\V M\\wedge\\V n$.</li><li>Définir $\\V H=\\V B/\\mu_0-\\V M$, la susceptibilité $\\chi_m$ et la perméabilité $\\mu_r=1+\\chi_m$.</li></ul>",
      "prerequis": "Chapitres 1 et 3.",
      "essentiel": "<ul><li>$\\V m=I\\V S$ ; $\\V M=\\diff\\V m/\\diff\\tau$ (A/m).</li><li>Courants d'aimantation : $\\V j_M=\\rot\\V M$ (volume), $\\V j_{SM}=\\V M\\wedge\\V n$ (surface).</li><li>$\\V H=\\V B/\\mu_0-\\V M$, $\\rot\\V H=\\V j_\\libre+\\varepsilon_0\\partial\\V E/\\partial t$.</li><li>$\\V M=\\chi_m\\V H$, $\\mu_r=1+\\chi_m$, $\\V B=\\mu_0\\mu_r\\V H$.</li></ul>",
-     "debut": 28,
-     "fin": 31,
+     "debut": 31,
+     "fin": 34,
      "partie": null,
      "sections": [
       {
        "titre": "Repères historiques et applications",
-       "page": 28
+       "page": 31
       },
       {
        "titre": "Le vecteur aimantation",
-       "page": 28
+       "page": 31
       },
       {
        "titre": "Courants équivalents à une distribution de moments",
-       "page": 29
+       "page": 32
       },
       {
        "titre": "Le champ magnétique ",
-       "page": 30
+       "page": 33
       },
       {
        "titre": "Susceptibilité et perméabilité magnétiques",
-       "page": 30
+       "page": 33
       }
      ],
      "methodes": [],
@@ -1871,33 +2221,37 @@ window.LC = {
      "objectifs": "<ul><li>Distinguer dia-, para- et ferromagnétisme (signe et ordre de grandeur de $\\chi_m$).</li><li>Décrire le cycle d'hystérésis : saturation, rémanence, champ coercitif ; température de Curie, domaines de Weiss.</li><li>Calculer l'énergie magnétique, les pertes par hystérésis et dans un matériau linéaire.</li><li>Utiliser les approches ampérienne et coulombienne ; écrire les conditions de passage.</li></ul>",
      "prerequis": "Chapitre 6.",
      "essentiel": "<ul><li>Dia : $\\chi_m&lt;0$, $|\\chi_m|\\sim10^{-6}$–$10^{-5}$ ; para : $\\chi_m&gt;0$, $\\lesssim10^{-3}$ ; ferro : $\\mu_r$ jusqu'à $10^4$–$10^5$, non linéaire, hystérésis ($M_s$, $M_r$, $H_c$), Curie (fer 770 °C), domaines de Weiss.</li><li>$\\diff u=\\V H\\cdot\\diff\\V B$ ; linéaire $u=\\tfrac12\\mu H^2$ ; hystérésis : pertes $=$ aire du cycle.</li><li>Linéaire à pertes : $\\moy{\\diff P/\\diff\\tau}=-\\tfrac12\\mu_0\\mu_r''\\omega H_0^2$.</li><li>Ampérienne : $\\V j_M$, $\\V j_{SM}$ ; coulombienne : $\\rho_m=-\\mu_0\\Div\\V M$, $\\sigma_m=\\mu_0\\V M\\cdot\\V n$, $\\V H=-\\grad V_m$.</li><li>Interface : $\\V H_{T2}-\\V H_{T1}=\\V J_S\\wedge\\V n_{1\\to2}$ ; $B_N$ continu.</li></ul>",
-     "debut": 32,
-     "fin": 36,
+     "debut": 35,
+     "fin": 41,
      "partie": null,
      "sections": [
       {
        "titre": "Diamagnétisme",
-       "page": 32
+       "page": 35
       },
       {
        "titre": "Paramagnétisme",
-       "page": 32
+       "page": 35
       },
       {
        "titre": "Ferromagnétisme",
-       "page": 33
+       "page": 36
       },
       {
        "titre": "Énergie magnétique",
-       "page": 34
+       "page": 37
       },
       {
        "titre": "Calcul du champ créé par un volume aimanté",
-       "page": 35
+       "page": 38
       },
       {
        "titre": "Conditions de passage",
-       "page": 35
+       "page": 38
+      },
+      {
+       "titre": "La sphère aimantée",
+       "page": 38
       }
      ],
      "methodes": [],
@@ -1910,7 +2264,7 @@ window.LC = {
    "matiere": "maths",
    "titre": "Mathématiques pour l'ingénieur",
    "description": "Espaces normés, intégrale de Lebesgue, Fourier, distributions, analyse complexe, Laplace, transformée en Z, probabilités.",
-   "pages": 63,
+   "pages": 65,
    "pdf": "docs/mathematiques-ingenieur.pdf",
    "chapitres": [
     {
@@ -2028,7 +2382,7 @@ window.LC = {
       },
       {
        "titre": "Transformée de Fourier dans L2(R)",
-       "page": 20
+       "page": 21
       },
       {
        "titre": "Produit de convolution",
@@ -2043,7 +2397,7 @@ window.LC = {
       {
        "num": "4.1",
        "titre": "Calculer une transformée de Fourier",
-       "page": 22
+       "page": 23
       }
      ],
      "pdf": "docs/mathematiques-ingenieur/chapitre-04.pdf"
@@ -2219,7 +2573,7 @@ window.LC = {
      "prerequis": "Séries de Laurent et résidus (chapitre 7) ; transformée de Laplace (chapitre 8).",
      "essentiel": "<ul><li>$U(z)=\\sum u_nz^{-n}$, convergente sur un anneau $R^-&lt;|z|&lt;R^+$.</li><li>Retard $z^{-n_0}$ ; $a^nx\\to X(z/a)$ ; $nx\\to-zX'$ ; convolution $\\to$ produit.</li><li>$u(n)=\\frac1{2i\\pi}\\oint U(z)z^{n-1}\\dd z$ ; $a^n\\1_{n\\ge0}\\leftrightarrow\\frac1{1-az^{-1}}$, $|z|&gt;|a|$.</li><li>Échantillonnage : $z=e^{pT}$.</li></ul>",
      "debut": 45,
-     "fin": 47,
+     "fin": 48,
      "partie": "Partie II Analyse complexe, transformées de Laplace et en Z",
      "sections": [
       {
@@ -2235,7 +2589,7 @@ window.LC = {
       {
        "num": "9.1",
        "titre": "Résoudre une récurrence linéaire",
-       "page": 46
+       "page": 47
       }
      ],
      "pdf": "docs/mathematiques-ingenieur/chapitre-09.pdf"
@@ -2247,32 +2601,32 @@ window.LC = {
      "objectifs": "<ul><li>Définir tribu, probabilité, espace probabilisé.</li><li>Construire des probabilités discrètes et la probabilité uniforme.</li><li>Utiliser conditionnement, probabilités composées et totales, formule de Bayes.</li><li>Distinguer indépendance deux à deux et mutuelle ; lemme de Borel–Cantelli.</li></ul>",
      "prerequis": "Théorie des ensembles, dénombrement ; mesure (chapitre 2).",
      "essentiel": "<ul><li>Tribu (stable par complémentaire et réunion dénombrable) ; probabilité $\\sigma$-additive de masse 1.</li><li>$\\P(A\\cup B)=\\P(A)+\\P(B)-\\P(A\\cap B)$ ; continuité monotone.</li><li>$\\P(A|B)=\\P(A\\cap B)/\\P(B)$ ; probabilités composées, totales ; Bayes.</li><li>Indépendance : $\\P(A\\cap B)=\\P(A)\\P(B)$ ; mutuelle $\\ne$ deux à deux ; Borel–Cantelli.</li></ul>",
-     "debut": 49,
-     "fin": 51,
+     "debut": 50,
+     "fin": 52,
      "partie": "Partie III Probabilités",
      "sections": [
       {
        "titre": "Événements et univers",
-       "page": 49
+       "page": 50
       },
       {
        "titre": "Premiers exemples",
-       "page": 50
+       "page": 51
       },
       {
        "titre": "Conditionnement",
-       "page": 50
+       "page": 51
       },
       {
        "titre": "Indépendance",
-       "page": 51
+       "page": 52
       }
      ],
      "methodes": [
       {
        "num": "10.1",
        "titre": "Conditionner",
-       "page": 51
+       "page": 52
       }
      ],
      "pdf": "docs/mathematiques-ingenieur/chapitre-10.pdf"
@@ -2284,28 +2638,28 @@ window.LC = {
      "objectifs": "<ul><li>Définir variable aléatoire, loi, fonction de répartition, espérance, variance.</li><li>Connaître les lois discrètes (uniforme, Bernoulli, binomiale, géométrique, Poisson) et à densité (uniforme, exponentielle, gamma, normale, log-normale, Cauchy).</li><li>Calculer la loi d'une fonction d'une variable à densité.</li></ul>",
      "prerequis": "Chapitre 10 ; intégrale de Lebesgue (chapitre 2).",
      "essentiel": "<ul><li>Loi $\\P_X$, fonction de répartition $F$ ; transfert $\\Esp\\Phi(X)=\\int\\Phi\\dd\\P_X$.</li><li>$V(X)=\\Esp X^2-(\\Esp X)^2$ ; variance additive pour des variables indépendantes.</li><li>Tables des lois discrètes et à densité (moyenne, variance, génératrice) ; lois sans mémoire : géométrique, exponentielle.</li><li>Densité de $\\Psi(X)$ : $f_X(x(y))|x'(y)|$.</li></ul>",
-     "debut": 52,
-     "fin": 55,
+     "debut": 53,
+     "fin": 57,
      "partie": "Partie III Probabilités",
      "sections": [
       {
        "titre": "Outils généraux",
-       "page": 52
-      },
-      {
-       "titre": "Variables discrètes",
        "page": 53
       },
       {
-       "titre": "Variables à densité",
+       "titre": "Variables discrètes",
        "page": 54
+      },
+      {
+       "titre": "Variables à densité",
+       "page": 55
       }
      ],
      "methodes": [
       {
        "num": "11.1",
        "titre": "Loi de $Y=g(X)$",
-       "page": 55
+       "page": 57
       }
      ],
      "pdf": "docs/mathematiques-ingenieur/chapitre-11.pdf"
@@ -2317,32 +2671,32 @@ window.LC = {
      "objectifs": "<ul><li>Définir la loi, la fonction de répartition et la densité d'un vecteur aléatoire.</li><li>Calculer espérance, matrice de covariance, coefficient de corrélation.</li><li>Connaître la loi multinomiale et les vecteurs gaussiens.</li><li>Obtenir les lois marginales, tester l'indépendance, changer de variables.</li></ul>",
      "prerequis": "Chapitre 11 ; Fubini et changement de variables (chapitre 2).",
      "essentiel": "<ul><li>Loi conjointe $\\Rightarrow$ marginales (somme ou intégrale), pas l'inverse.</li><li>$\\Lambda$ symétrique positive ; $\\rho\\in[-1,1]$ ; indépendance $\\Rightarrow$ non-corrélation (équivalence si gaussien).</li><li>Indépendance $\\iff$ $F$ ou densité produit.</li><li>Densité de $T(X)$ : $f\\circ T^{-1}\\,|J_{T^{-1}}|$ ; somme indépendante : convolution des densités.</li></ul>",
-     "debut": 56,
-     "fin": 59,
+     "debut": 58,
+     "fin": 61,
      "partie": "Partie III Probabilités",
      "sections": [
       {
        "titre": "Loi d'un vecteur aléatoire",
-       "page": 56
+       "page": 58
       },
       {
        "titre": "Espérance, covariance, corrélation",
-       "page": 57
+       "page": 59
       },
       {
        "titre": "Deux exemples",
-       "page": 57
+       "page": 59
       },
       {
        "titre": "Calculer avec plusieurs aléas",
-       "page": 58
+       "page": 60
       }
      ],
      "methodes": [
       {
        "num": "12.1",
        "titre": "Loi de $X+Y$, $XY$, $X/Y$",
-       "page": 59
+       "page": 61
       }
      ],
      "pdf": "docs/mathematiques-ingenieur/chapitre-12.pdf"
@@ -2354,28 +2708,28 @@ window.LC = {
      "objectifs": "<ul><li>Calculer et utiliser la fonction caractéristique.</li><li>Connaître les modes de convergence (loi, $L^p$, probabilité, presque sûre) et leurs liens.</li><li>Énoncer et appliquer la loi des grands nombres et le théorème central limite.</li></ul>",
      "prerequis": "Chapitres 11 et 12 ; transformée de Fourier (chapitre 4).",
      "essentiel": "<ul><li>$\\varphi_X(t)=\\Esp e^{itX}$ caractérise la loi ; somme indépendante $\\to$ produit ; $\\varphi^{(k)}(0)=i^k\\Esp X^k$.</li><li>Loi (via $F$ ou Lévy) $\\Leftarrow$ probabilité $\\Leftarrow$ $L^1$ $\\Leftarrow$ $L^2$ ; p.s. $\\Rightarrow$ probabilité.</li><li>Markov, Bienaymé–Tchebychev.</li><li>LGN : $\\bar X_n\\to m$ (probabilité, p.s.) ; TCL : $\\sqrt n(\\bar X_n-m)/\\sigma\\to\\mathcal N(0,1)$ en loi.</li></ul>",
-     "debut": 60,
-     "fin": 63,
+     "debut": 62,
+     "fin": 65,
      "partie": "Partie III Probabilités",
      "sections": [
       {
        "titre": "Fonction caractéristique",
-       "page": 60
+       "page": 62
       },
       {
        "titre": "Modes de convergence",
-       "page": 61
+       "page": 63
       },
       {
        "titre": "Théorèmes limites",
-       "page": 62
+       "page": 64
       }
      ],
      "methodes": [
       {
        "num": "13.1",
        "titre": "Identifier la loi d'une somme indépendante",
-       "page": 61
+       "page": 63
       }
      ],
      "pdf": "docs/mathematiques-ingenieur/chapitre-13.pdf"

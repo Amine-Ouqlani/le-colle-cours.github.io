@@ -14,7 +14,7 @@ SITE = Path(sys.argv[1] if len(sys.argv) > 1 else '/home/claude/site')
 
 MATIERES = [
     ('electricite', 'Électricité et électronique', "Circuits linéaires, mesure et puissance électrique."),
-    ('numerique', 'Numérique et informatique', "Logique, circuits numériques et conception d'algorithmes."),
+    ('numerique', 'Numérique et informatique', "Logique, circuits numériques, architecture des processeurs et conception d'algorithmes."),
     ('physique', 'Physique', "Électromagnétisme, propagation dans les lignes et physique des matériaux."),
     ('maths', 'Mathématiques', "Analyse, transformations, fonctions complexes et probabilités."),
     ('langues', 'Langues', "Allemand, niveau débutant."),
@@ -26,6 +26,8 @@ LIVRES = [
      "Unités et incertitudes, instruments et mesures électriques, puissance en monophasé et systèmes triphasés."),
     (4, 'conception-systemes-logiques', 'numerique', 'Conception des systèmes logiques',
      "Algèbre de Boole, codage, logique CMOS, circuits combinatoires et séquentiels, mémoires et composants programmables."),
+    (10, 'architecture-assembleur', 'numerique', 'Architecture et programmation en assembleur',
+     "Codage, architecture de Von Neumann, processeur EROS et micro-instructions, modes d'adressage, mémoire et décodage, interfaçage, interruptions."),
     (3, 'raffinage-algorithme', 'numerique', "Du raffinage à l'algorithme",
      "Analyse descendante, structures de contrôle, variables, sous-programmes et une étude de cas complète."),
     (8, 'electromagnetisme', 'physique', 'Électromagnétisme',
@@ -33,7 +35,7 @@ LIVRES = [
     (9, 'propagation-lignes', 'physique', 'Propagation dans les lignes',
      "Modèle RLCG, propagation, ligne chargée et adaptation, paramètres S, réflectométrie, couplage et diaphonie."),
     (5, 'physique-des-materiaux', 'physique', 'Physique des matériaux',
-     "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, matériaux magnétiques."),
+     "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, sphères polarisée et aimantée, matériaux magnétiques."),
     (6, 'mathematiques-ingenieur', 'maths', "Mathématiques pour l'ingénieur",
      "Espaces normés, intégrale de Lebesgue, Fourier, distributions, analyse complexe, Laplace, transformée en Z, probabilités."),
     (7, 'allemand-le-colle', 'langues', 'Allemand',
@@ -78,7 +80,7 @@ def labels(aux):
 MATH = re.compile(r'(\\\[.*?\\\]|\$\$.*?\$\$|(?<!\\)\$.*?(?<!\\)\$|\\begin\{(align\*?|equation\*?|gather\*?)\}.*?\\end\{\2\})', re.S)
 SIMPLES = {'emph': 'em', 'textit': 'em', 'textbf': 'strong', 'kw': 'strong', 'texttt': 'code', 'underline': 'u',
            'textsuperscript': 'sup', 'textsc': 'span class="sc"', 'textsf': 'span', 'textrm': 'span', 'mbox': 'span',
-           'de': 'span class="de"', 'fr': 'em class="fr"', 'entete': 'span'}
+           'de': 'span class="de"', 'fr': 'em class="fr"', 'entete': 'span', 'ins': 'code', 'reg': 'span'}
 REMPL = [(r'\ldots', '…'), (r'\dots', '…'), (r'\S', '§'), (r'\textcopyright', '©'), (r'\quad', ' '), (r'\qquad', ' '),
          (r'\,', '\u202f'), (r'\ ', ' '), (r'\enspace', ' '), (r'\HP', '[HP]'), (r'\&', '&amp;'), (r'\%', '%'),
          (r'\leavevmode', ''), (r'\noindent', ''), (r'\smallskip', ''), (r'\medskip', ''), (r'\par', ' '), (r'\hfill', ' '),

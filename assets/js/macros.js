@@ -20,5 +20,6 @@ window.LC_MACROS = {
   '\\vect': '\\operatorname{Vect}', '\\Mat': '\\operatorname{Mat}', '\\ch': '\\operatorname{ch}', '\\sh': '\\operatorname{sh}',
   '\\th': '\\operatorname{th}', '\\Arg': '\\operatorname{Arg}', '\\Cov': '\\operatorname{Cov}', '\\Res': '\\operatorname{Res}',
   '\\Supp': '\\operatorname{Supp}', '\\Var': '\\operatorname{Var}', '\\argsh': '\\operatorname{argsh}', '\\sinc': '\\operatorname{sinc}',
+  '\\M': '\\mathrm{M}[#1]', '\\aff': '\\leftarrow',
   '\\oiint': '\\mathop{{\\int\\!\\!\\!\\!\\!\\int}\\mkern-21mu \\bigcirc}', '\\HP': '\\text{[HP]}'
 };
