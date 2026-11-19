@@ -2221,7 +2221,7 @@ window.LC = {
       },
       {
        "titre": "Susceptibilité et perméabilité magnétiques",
-       "page": 33
+       "page": 34
       }
      ],
      "methodes": [],
