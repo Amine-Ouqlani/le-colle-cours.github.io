@@ -33,7 +33,7 @@ window.LC = {
    "matiere": "electricite",
    "titre": "Méthodes d'analyse des circuits",
    "description": "Signaux, dipôles, lois de Kirchhoff et théorèmes généraux, transformée de Laplace et fonctions de transfert, quadripôles.",
-   "pages": 43,
+   "pages": 45,
    "pdf": "docs/methodes-analyse-circuits.pdf",
    "fiche": "docs/methodes-analyse-circuits/fiche-revision.pdf",
    "chapitres": [
@@ -180,7 +180,7 @@ window.LC = {
      "prerequis": "Chapitres 1–3 ; fractions rationnelles, logarithme décimal.",
      "essentiel": "<ul><li>$F(p)=\\int_0^\\infty fe^{-pt}\\diff t$ ; table : $\\delta\\to1$, $u\\to\\frac1p$, $e^{-at}\\to\\frac1{p+a}$, $t^n\\to\\frac{n!}{p^{n+1}}$, $\\cos\\to\\frac p{p^2+\\omega^2}$, $\\sin\\to\\frac\\omega{p^2+\\omega^2}$, $e^{-at}\\times\\ \\Leftrightarrow\\ p\\to p+a$.</li><li>$f'\\to pF-f(0^-)$ ; $\\int\\to F/p$ ; retard $\\to e^{-t_0p}$ ; valeurs initiale/finale par $pF(p)$.</li><li>$Z_C=\\frac1{Cp}$ (+ source $CV_{0^-}$ ou $V_{0^-}/p$) ; $Z_L=Lp$ (+ source $LI_{0^-}$ ou $I_{0^-}/p$) ; $S=HE$.</li><li>Libre/forcée (pôles de $H$/de $E$) ; transitoire/permanente ; permanente liée aux pôles de $E$.</li><li>Inverse : éléments simples puis table.</li><li>RSP : $s_{per}=E|H(j\\omega)|\\cos(\\omega t+\\varphi+\\psi)$, $p=j\\omega$.</li><li>1<sup>er</sup> ordre $\\frac K{1+\\tau p}$ : $-3$ dB et $-\\pi/4$ en $\\omega_0=1/\\tau$, puis $-20$ dB/déc., $-\\pi/2$.</li><li>2<sup>e</sup> ordre : $|H(j\\omega_0)|=\\frac K{2m}$, $\\psi(\\omega_0)=-\\frac\\pi2$, $-40$ dB/déc., $-\\pi$ ; résonance si $m&lt;\\frac{\\sqrt2}2$, $\\omega_{res}=\\omega_0\\sqrt{1-2m^2}$.</li></ul>",
      "debut": 27,
-     "fin": 36,
+     "fin": 37,
      "partie": null,
      "sections": [
       {
@@ -214,6 +214,11 @@ window.LC = {
        "num": "4.2",
        "titre": "Tracer un diagramme de Bode",
        "page": 36
+      },
+      {
+       "num": "4.3",
+       "titre": "Retrouver ou concevoir un filtre du premier ordre",
+       "page": 37
       }
      ],
      "pdf": "docs/methodes-analyse-circuits/chapitre-04.pdf"
@@ -225,36 +230,36 @@ window.LC = {
      "objectifs": "<ul><li>Connaître les six jeux de paramètres et savoir les déterminer par des essais à vide ou en court-circuit.</li><li>Passer d'un jeu de paramètres à un autre ; reconnaître un quadripôle passif ou symétrique.</li><li>Calculer impédances d'entrée et de sortie, gains ; associer des quadripôles.</li><li>Connaître le transformateur et le gyrateur.</li></ul>",
      "prerequis": "Chapitres 2–3 ; calcul matriciel $2\\times2$.",
      "essentiel": "<ul><li>Courants entrants ; $[Z]$ (CO), $[Y]$ (CC), $[h]$, $[g]=[h]^{-1}$, $[a]$ avec $(V_2,-I_2)$ ; $[Z]=[Y]^{-1}$.</li><li>Chaque paramètre : rapport de deux grandeurs, un accès en court-circuit ($V=0$) ou ouvert ($I=0$).</li><li>Passif : $AD-BC=1$, $Z_{12}=Z_{21}$, $Y_{12}=Y_{21}$, $h_{12}=-h_{21}$. Symétrique : $A=D$, $Z_{11}=Z_{22}$, $\\Delta h=1$.</li><li>$Z_E$ dépend de la charge, $Z_S$ du générateur ; $G_V=V_2/V_1$, $G_I=I_2/I_1$.</li><li>Cascade $[a]=[a_1][a_2]$ ; parallèle $[Y]=[Y']+[Y'']$ ; série $[Z]=[Z']+[Z'']$.</li><li>T : $[Z]=\\begin{bmatrix}z_1+z_3&amp;z_3\\\\z_3&amp;z_2+z_3\\end{bmatrix}$ ; $\\Pi$ : $[Y]=\\begin{bmatrix}y_1+y_3&amp;-y_3\\\\-y_3&amp;y_2+y_3\\end{bmatrix}$.</li><li>Transformateur : $V_2/V_1=I_1/I_2=k$, isolement. Gyrateur : $v_2=ri_1$, $v_1=-ri_2$ ; $L\\to C_{eq}=L/r^2$, $C\\to L_{eq}=Cr^2$.</li></ul>",
-     "debut": 37,
-     "fin": 43,
+     "debut": 38,
+     "fin": 45,
      "partie": null,
      "sections": [
       {
        "titre": "Les paramètres d'un quadripôle",
-       "page": 37
+       "page": 38
       },
       {
        "titre": "Relations entre paramètres et types de quadripôles",
-       "page": 39
+       "page": 40
       },
       {
        "titre": "Impédances d'entrée et de sortie, gains",
-       "page": 40
+       "page": 41
       },
       {
        "titre": "Associations de quadripôles",
-       "page": 40
+       "page": 42
       },
       {
        "titre": "Exemples",
-       "page": 41
+       "page": 43
       }
      ],
      "methodes": [
       {
        "num": "5.1",
        "titre": "Déterminer les paramètres d'un quadripôle",
-       "page": 38
+       "page": 39
       }
      ],
      "pdf": "docs/methodes-analyse-circuits/chapitre-05.pdf"
