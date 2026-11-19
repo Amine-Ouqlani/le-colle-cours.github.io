@@ -44,3 +44,36 @@ function cadre(courant) {
   foot.innerHTML = `<div class="wrap"><span>Le Collé</span><a href="index.html">Toutes les matières</a></div>`;
   document.body.append(foot);
 }
+
+/* Application installable : service worker et lecture hors ligne */
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+const CACHE_DOCS = 'lc-docs-v1';
+/* fichiers nécessaires pour lire hors ligne : livres complets (lecteur) et fiches */
+const fichiersHorsLigne = () => LC.livres.flatMap(l => [l.pdf, l.fiche].filter(Boolean));
+const estInstallee = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+
+async function etatHorsLigne() {
+  if (!('caches' in window)) return null;
+  const c = await caches.open(CACHE_DOCS);
+  const f = fichiersHorsLigne();
+  let n = 0;
+  for (const u of f) if (await c.match(new URL(u, location.href).href)) n++;
+  return { n, total: f.length };
+}
+
+async function telechargerHorsLigne(progres) {
+  const c = await caches.open(CACHE_DOCS);
+  const f = fichiersHorsLigne();
+  let fait = 0, erreurs = 0;
+  for (const u of f) {
+    const abs = new URL(u, location.href).href;
+    if (!(await c.match(abs))) {
+      try { const r = await fetch(abs, { cache: 'no-cache' }); if (r.ok) await c.put(abs, r); else erreurs++; }
+      catch { erreurs++; }
+    }
+    progres && progres(++fait, f.length);
+  }
+  return erreurs;
+}

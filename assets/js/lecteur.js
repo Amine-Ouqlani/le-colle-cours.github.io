@@ -23,7 +23,7 @@
   if (!window.pdfjsLib) { $('#rd-loading').innerHTML = `Le lecteur n'a pas pu démarrer. <a href="${fichier}">Ouvrir le PDF</a>`; return; }
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/vendor/pdfjs/pdf.worker.min.js';
   let pdf;
-  try { pdf = await pdfjsLib.getDocument(L.pdf).promise; }
+  try { pdf = await pdfjsLib.getDocument({ url: L.pdf, disableRange: true, disableStream: true }).promise; }
   catch (e) { $('#rd-loading').innerHTML = `Impossible de charger le document. <a href="${fichier}">Télécharger le PDF</a>`; return; }
 
   const N = pdf.numPages;
