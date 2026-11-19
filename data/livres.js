@@ -19,7 +19,7 @@ window.LC = {
   {
    "id": "maths",
    "titre": "Mathématiques",
-   "description": "Analyse, transformations, fonctions complexes et probabilités."
+   "description": "Intégration et analyse de Fourier, analyse complexe, probabilités."
   },
   {
    "id": "langues",
@@ -35,6 +35,7 @@ window.LC = {
    "description": "Signaux, dipôles, lois de Kirchhoff et théorèmes généraux, transformée de Laplace et fonctions de transfert, quadripôles.",
    "pages": 43,
    "pdf": "docs/methodes-analyse-circuits.pdf",
+   "fiche": "docs/methodes-analyse-circuits/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -267,6 +268,7 @@ window.LC = {
    "description": "Unités et incertitudes, instruments et mesures électriques, puissance en monophasé et systèmes triphasés.",
    "pages": 49,
    "pdf": "docs/metrologie-circuits-puissance.pdf",
+   "fiche": "docs/metrologie-circuits-puissance/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -506,6 +508,7 @@ window.LC = {
    "description": "Algèbre de Boole, codage, logique CMOS, circuits combinatoires et séquentiels, mémoires et composants programmables.",
    "pages": 57,
    "pdf": "docs/conception-systemes-logiques.pdf",
+   "fiche": "docs/conception-systemes-logiques/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -959,6 +962,7 @@ window.LC = {
    "description": "Codage, architecture de Von Neumann, processeur EROS et micro-instructions, modes d'adressage, mémoire et décodage, interfaçage, interruptions.",
    "pages": 57,
    "pdf": "docs/architecture-assembleur.pdf",
+   "fiche": "docs/architecture-assembleur/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -1305,6 +1309,7 @@ window.LC = {
    "description": "Analyse descendante, structures de contrôle, variables, sous-programmes et une étude de cas complète.",
    "pages": 26,
    "pdf": "docs/raffinage-algorithme.pdf",
+   "fiche": "docs/raffinage-algorithme/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -1483,6 +1488,7 @@ window.LC = {
    "description": "Outils vectoriels, électrostatique, magnétostatique, induction, inductances, équations de Maxwell, ondes et milieux matériels.",
    "pages": 64,
    "pdf": "docs/electromagnetisme.pdf",
+   "fiche": "docs/electromagnetisme/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -1845,6 +1851,7 @@ window.LC = {
    "description": "Modèle RLCG, propagation, ligne chargée et adaptation, paramètres S, réflectométrie, couplage et diaphonie.",
    "pages": 25,
    "pdf": "docs/propagation-lignes.pdf",
+   "fiche": "docs/propagation-lignes/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -1999,6 +2006,7 @@ window.LC = {
    "description": "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, sphères polarisée et aimantée, matériaux magnétiques.",
    "pages": 41,
    "pdf": "docs/physique-des-materiaux.pdf",
+   "fiche": "docs/physique-des-materiaux/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -2260,12 +2268,13 @@ window.LC = {
    ]
   },
   {
-   "id": "mathematiques-ingenieur",
+   "id": "integration",
    "matiere": "maths",
-   "titre": "Mathématiques pour l'ingénieur",
-   "description": "Espaces normés, intégrale de Lebesgue, Fourier, distributions, analyse complexe, Laplace, transformée en Z, probabilités.",
-   "pages": 65,
-   "pdf": "docs/mathematiques-ingenieur.pdf",
+   "titre": "Intégration",
+   "description": "Espaces normés, intégrale de Lebesgue, séries et transformée de Fourier, convolution, distributions et échantillonnage.",
+   "pages": 24,
+   "pdf": "docs/integration.pdf",
+   "fiche": "docs/integration/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,
@@ -2274,25 +2283,25 @@ window.LC = {
      "objectifs": "<ul><li>Manipuler normes, produits scalaires, projection orthogonale.</li><li>Distinguer les convergences d'une suite de fonctions.</li><li>Caractériser la continuité d'une application linéaire ; norme subordonnée.</li></ul>",
      "prerequis": "Algèbre linéaire de CPGE.",
      "essentiel": "<ul><li>Norme : séparation, homogénéité, inégalité triangulaire ; produit scalaire $\\Rightarrow$ norme ; Cauchy–Schwarz.</li><li>$P_F(x)=\\sum\\frac{\\ps x{e_i}}{\\nrm{e_i}^2}e_i$ minimise $\\nrm{x-z}$ sur $F$.</li><li>En dimension infinie, la convergence dépend de la norme (simple, uniforme, quadratique).</li><li>Linéaire : continue $\\iff$ bornée sur la boule unité $\\iff\\nrm{Tx}\\le L\\nrm x$.</li></ul>",
-     "debut": 7,
-     "fin": 9,
-     "partie": "Partie I Intégration et analyse de Fourier",
+     "debut": 4,
+     "fin": 6,
+     "partie": null,
      "sections": [
       {
        "titre": "Espaces vectoriels normés",
-       "page": 7
+       "page": 4
       },
       {
        "titre": "Un peu de topologie",
-       "page": 8
+       "page": 5
       },
       {
        "titre": "Applications linéaires continues",
-       "page": 9
+       "page": 6
       }
      ],
      "methodes": [],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-01.pdf"
+     "pdf": "docs/integration/chapitre-01.pdf"
     },
     {
      "n": 2,
@@ -2301,40 +2310,40 @@ window.LC = {
      "objectifs": "<ul><li>Connaître tribu, mesure, ensemble négligeable, mesure de Lebesgue.</li><li>Définir l'intégrale de Lebesgue et l'espace $L^1$.</li><li>Appliquer convergence monotone, convergence dominée, continuité et dérivation sous l'intégrale.</li><li>Utiliser intégration par parties, Fubini–Tonelli, changement de variables.</li></ul>",
      "prerequis": "Chapitre 1 ; intégrale de Riemann.",
      "essentiel": "<ul><li>Tribu, mesure $\\sigma$-additive ; mesure de Lebesgue : $\\mu(]a,b[)=b-a$, complète ; dénombrable $\\Rightarrow$ négligeable.</li><li>$\\int f$ : sup des intégrales de fonctions étagées ; $f\\in L^1\\iff\\int|f|&lt;\\infty$ ; égalité p.p.</li><li>Convergence monotone (suite positive croissante) ; convergence dominée ($|f_n|\\le g\\in L^1$ indépendante de $n$).</li><li>Continuité/dérivation sous $\\int$ : domination de $f$ (resp. $\\partial_tf$) localement en $t$.</li><li>IPP (absolue continuité) ; Tonelli puis Fubini ; changement de variables avec $|\\det D\\varphi|$.</li></ul>",
-     "debut": 10,
-     "fin": 14,
-     "partie": "Partie I Intégration et analyse de Fourier",
+     "debut": 7,
+     "fin": 11,
+     "partie": null,
      "sections": [
       {
        "titre": "De Riemann à Lebesgue",
-       "page": 10
+       "page": 7
       },
       {
        "titre": "Notions de mesure",
-       "page": 10
+       "page": 7
       },
       {
        "titre": "L'intégrale de Lebesgue",
-       "page": 11
+       "page": 8
       },
       {
        "titre": "Les grands théorèmes",
-       "page": 12
+       "page": 9
       }
      ],
      "methodes": [
       {
        "num": "2.1",
        "titre": "Intervertir limite et intégrale",
-       "page": 13
+       "page": 10
       },
       {
        "num": "2.2",
        "titre": "Intégrale double",
-       "page": 14
+       "page": 11
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-02.pdf"
+     "pdf": "docs/integration/chapitre-02.pdf"
     },
     {
      "n": 3,
@@ -2343,27 +2352,27 @@ window.LC = {
      "objectifs": "<ul><li>Passer des coefficients réels $a_n,b_n$ aux coefficients complexes $c_n$.</li><li>Énoncer convergence quadratique, Parseval, convergence uniforme, Dirichlet.</li><li>Relier régularité de $f$ et décroissance de ses coefficients.</li></ul>",
      "prerequis": "Produit scalaire, projection orthogonale (chapitre 1) ; intégrale (chapitre 2).",
      "essentiel": "<ul><li>$c_n=\\frac1T\\int_0^Tfe^{-i2\\pi nt/T}$ ; $a_n=c_n+c_{-n}$, $b_n=i(c_n-c_{-n})$.</li><li>$L^2$ et Parseval : toujours ; Dirichlet ($C^1$ par morceaux) : demi-somme des limites ; uniforme : $f$ continue et $\\sum|c_n|&lt;\\infty$.</li><li>Gibbs : dépassement d'environ $9\\,\\%$ du saut, persistant.</li><li>Régularité $\\leftrightarrow$ décroissance des $c_n$ ; $c_n(f')=\\frac{i2\\pi n}Tc_n(f)$.</li></ul>",
-     "debut": 15,
-     "fin": 18,
-     "partie": "Partie I Intégration et analyse de Fourier",
+     "debut": 12,
+     "fin": 15,
+     "partie": null,
      "sections": [
       {
        "titre": "Polynômes trigonométriques",
-       "page": 15
+       "page": 12
       },
       {
        "titre": "Convergence de la série de Fourier",
-       "page": 16
+       "page": 13
       }
      ],
      "methodes": [
       {
        "num": "3.1",
        "titre": "Étudier une série de Fourier",
-       "page": 17
+       "page": 14
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-03.pdf"
+     "pdf": "docs/integration/chapitre-03.pdf"
     },
     {
      "n": 4,
@@ -2372,35 +2381,35 @@ window.LC = {
      "objectifs": "<ul><li>Définir la TF dans $L^1$ et connaître ses propriétés (Riemann–Lebesgue, transfert, dérivation, inversion).</li><li>Étendre la TF à $L^2$ (Plancherel).</li><li>Manipuler la convolution et son lien avec la TF ; filtres linéaires.</li><li>Utiliser le formulaire.</li></ul>",
      "prerequis": "Chapitres 2 (convergence dominée, Fubini) et 3.",
      "essentiel": "<ul><li>$\\hat f(\\nu)=\\int fe^{-i2\\pi\\nu t}$ ; $\\hat f$ continue bornée, $\\to0$ à l'infini ; $\\nrm{\\hat f}_\\infty\\le\\nrm f_1$.</li><li>Inversion si $f,\\hat f\\in L^1$ ; ponctuelle (demi-somme) sinon, en valeur principale.</li><li>$L^2$ : TF isométrique et bijective ; $\\int|\\hat f|^2=\\int|f|^2$.</li><li>$\\widehat{f*g}=\\hat f\\hat g$ ; filtre linéaire : $\\hat y=\\hat h\\hat x$.</li></ul>",
-     "debut": 19,
-     "fin": 23,
-     "partie": "Partie I Intégration et analyse de Fourier",
+     "debut": 16,
+     "fin": 20,
+     "partie": null,
      "sections": [
       {
        "titre": "Transformée de Fourier dans L1(R)",
-       "page": 19
+       "page": 16
       },
       {
        "titre": "Transformée de Fourier dans L2(R)",
-       "page": 21
+       "page": 18
       },
       {
        "titre": "Produit de convolution",
-       "page": 21
+       "page": 18
       },
       {
        "titre": "Formulaire",
-       "page": 22
+       "page": 19
       }
      ],
      "methodes": [
       {
        "num": "4.1",
        "titre": "Calculer une transformée de Fourier",
-       "page": 23
+       "page": 20
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-04.pdf"
+     "pdf": "docs/integration/chapitre-04.pdf"
     },
     {
      "n": 5,
@@ -2409,330 +2418,352 @@ window.LC = {
      "objectifs": "<ul><li>Connaître $\\Dc(\\R)$, $\\Dc'(\\R)$, $\\Sc(\\R)$, $\\Sc'(\\R)$ et leurs convergences.</li><li>Dériver une distribution ; appliquer la formule des sauts.</li><li>Calculer la TF d'une distribution tempérée ($\\delta$, peigne de Dirac).</li><li>Énoncer et démontrer le théorème d'échantillonnage de Shannon.</li></ul>",
      "prerequis": "Chapitres 2 et 4.",
      "essentiel": "<ul><li>$\\Dc$ : $C^\\infty$ à support compact ; $\\Dc'$ : formes linéaires continues ; $f\\in L^1_{loc}\\mapsto T_f$ injective.</li><li>$\\ps{T'}\\varphi=-\\ps T{\\varphi'}$ ; formule des sauts : $T_f'=T_{\\{f'\\}}+\\sum\\sigma_n\\delta_{a_n}$.</li><li>$\\Sc$ stable par TF ; $\\ps{\\hat T}\\varphi=\\ps T{\\hat\\varphi}$ sur $\\Sc'$ ; $\\hat\\delta=1$, $\\hat1=\\delta$, $\\widehat{\\Delta_a}=\\frac1a\\Delta_{1/a}$.</li><li>Shannon : $F_e&gt;2B$, reconstruction par sinus cardinaux ; sinon repliement.</li></ul>",
-     "debut": 24,
-     "fin": 27,
-     "partie": "Partie I Intégration et analyse de Fourier",
+     "debut": 21,
+     "fin": 24,
+     "partie": null,
      "sections": [
       {
        "titre": "Fonctions tests et distributions",
-       "page": 24
+       "page": 21
       },
       {
        "titre": "Dérivées des distributions",
-       "page": 25
+       "page": 22
       },
       {
        "titre": "Transformée de Fourier des distributions",
-       "page": 25
+       "page": 22
       },
       {
        "titre": "Théorème d'échantillonnage",
-       "page": 26
+       "page": 23
       }
      ],
      "methodes": [],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-05.pdf"
-    },
+     "pdf": "docs/integration/chapitre-05.pdf"
+    }
+   ]
+  },
+  {
+   "id": "analyse-complexe",
+   "matiere": "maths",
+   "titre": "Analyse complexe",
+   "description": "Fonctions holomorphes, intégration complexe et théorème des résidus, transformée de Laplace, transformée en Z.",
+   "pages": 23,
+   "pdf": "docs/analyse-complexe.pdf",
+   "fiche": "docs/analyse-complexe/fiche-revision.pdf",
+   "chapitres": [
     {
-     "n": 6,
+     "n": 1,
      "titre": "Nombres complexes et fonctions holomorphes",
      "intro": "Toute l'analyse complexe repose sur la dérivabilité au sens complexe, condition beaucoup plus forte que la différentiabilité dans $\\R^2$ : elle lie partie réelle et partie imaginaire.",
      "objectifs": "<ul><li>Revoir le corps $\\C$, module, argument, topologie, séries.</li><li>Connaître séries entières, rayon de convergence, exponentielle et fonctions trigonométriques complexes.</li><li>Manipuler les déterminations de l'argument, du logarithme et des puissances.</li><li>Caractériser l'holomorphie par les conditions de Cauchy–Riemann.</li></ul>",
      "prerequis": "Nombres complexes (lycée), séries numériques, fonctions de deux variables.",
      "essentiel": "<ul><li>$R=1/\\limsup|a_n|^{1/n}$ ; convergence normale sur les compacts du disque ouvert ; rien de général sur le bord.</li><li>$e^z=1\\iff z\\in2i\\pi\\Z$ ; $\\cos$, $\\sin$, $\\cosh$, $\\sinh$ définis sur $\\C$.</li><li>Détermination $\\arg_{k,\\alpha}$ sur $\\C\\setminus D_\\alpha$ ; $\\log z=\\ln|z|+i\\arg z$ ; $z^\\beta=e^{\\beta\\log z}$ ; $(\\log z)'=1/z$.</li><li>Holomorphe $\\iff$ différentiable et Cauchy–Riemann : $P_x=Q_y$, $P_y=-Q_x$.</li></ul>",
-     "debut": 29,
-     "fin": 33,
-     "partie": "Partie II Analyse complexe, transformées de Laplace et en Z",
+     "debut": 4,
+     "fin": 8,
+     "partie": null,
      "sections": [
       {
        "titre": "Le corps des complexes",
-       "page": 29
+       "page": 4
       },
       {
        "titre": "Topologie et convergences",
-       "page": 30
+       "page": 5
       },
       {
        "titre": "Fonctions usuelles et séries entières",
-       "page": 30
+       "page": 5
       },
       {
        "titre": "Argument, logarithme et puissances",
-       "page": 32
+       "page": 7
       },
       {
        "titre": "Fonctions holomorphes",
-       "page": 32
+       "page": 7
       }
      ],
      "methodes": [
       {
-       "num": "6.1",
+       "num": "1.1",
        "titre": "Montrer qu'une fonction est holomorphe",
-       "page": 33
+       "page": 8
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-06.pdf"
+     "pdf": "docs/analyse-complexe/chapitre-01.pdf"
     },
     {
-     "n": 7,
+     "n": 2,
      "titre": "Intégration complexe et théorème des résidus",
      "intro": "On intègre désormais le long de chemins du plan. La rigidité des fonctions holomorphes fait que leur intégrale sur un lacet ne dépend que des singularités entourées : c'est le théorème des résidus, outil de calcul majeur de l'ingénieur.",
      "objectifs": "<ul><li>Calculer une intégrale curviligne ; savoir démontrer les lemmes de Jordan.</li><li>Énoncer le théorème de Cauchy et ses conséquences (primitives, formule intégrale, Laurent).</li><li>Calculer des résidus et appliquer le théorème des résidus au calcul d'intégrales réelles.</li></ul>",
-     "prerequis": "Chapitre 6 ; convergence dominée (chapitre 2).",
+     "prerequis": "Chapitre 1 ; convergence dominée (livre <em>Intégration</em>, chapitre 2).",
      "essentiel": "<ul><li>$\\int_\\gamma f\\dd z=\\int f(\\gamma(t))\\gamma'(t)\\dd t$ ; $\\oint\\frac{\\dd z}{z-a}=2i\\pi$.</li><li>Jordan 1 : $|zf|\\to0$ ; Jordan 2 : $|f|\\to0$ et $e^{imz}$ dans le bon demi-plan.</li><li>Cauchy : $\\oint f=0$ sur un domaine simplement connexe ; primitives ; Laurent.</li><li>$\\oint f=2i\\pi\\sum\\Res$ ; pôle simple : $P(z_0)/Q'(z_0)$ ; pôle d'ordre $p$ : formule de dérivation.</li></ul>",
-     "debut": 34,
-     "fin": 39,
-     "partie": "Partie II Analyse complexe, transformées de Laplace et en Z",
+     "debut": 9,
+     "fin": 14,
+     "partie": null,
      "sections": [
       {
        "titre": "Intégrale curviligne",
-       "page": 34
+       "page": 9
       },
       {
        "titre": "Lemmes de Jordan",
-       "page": 35
+       "page": 10
       },
       {
        "titre": "Théorème de Cauchy et conséquences",
-       "page": 35
+       "page": 10
       },
       {
        "titre": "Singularités et résidus",
-       "page": 36
+       "page": 11
       },
       {
        "titre": "Applications au calcul d'intégrales",
-       "page": 37
+       "page": 12
       },
       {
        "titre": "Fonctions harmoniques (H.P.)",
-       "page": 38
+       "page": 13
       }
      ],
      "methodes": [
       {
-       "num": "7.1",
+       "num": "2.1",
        "titre": "Intégrale $\\int _{-\\infty }^{+\\infty }g(x)\\,\\mathrm {d}x$",
-       "page": 38
+       "page": 13
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-07.pdf"
+     "pdf": "docs/analyse-complexe/chapitre-02.pdf"
     },
     {
-     "n": 8,
+     "n": 3,
      "titre": "Transformée de Laplace",
      "intro": "Outil majeur pour les équations différentielles et aux dérivées partielles linéaires (tout l'automatique travaille « dans le domaine de Laplace »), la transformée de Laplace change des fonctions ne décroissant que faiblement à l'infini en fonctions holomorphes sur un demi-plan. On se limite aux signaux <em>causaux</em> (transformée unilatérale ; il existe une version bilatérale).",
      "objectifs": "<ul><li>Définir la transformée et ses abscisses de convergence.</li><li>Utiliser les propriétés (dérivation, intégration, translations, convolution, valeurs initiale et finale) et la table.</li><li>Inverser par la table, par éléments simples ou par la formule de Bromwich.</li><li>Résoudre des équations différentielles et des EDP linéaires.</li></ul>",
-     "prerequis": "Chapitres 6 et 7 ; transformée de Fourier (chapitre 4).",
+     "prerequis": "Chapitres 1 et 2 ; transformée de Fourier (livre <em>Intégration</em>, chapitre 4).",
      "essentiel": "<ul><li>$F(p)=\\int_0^\\infty e^{-pt}f$, holomorphe pour $\\Re p&gt;x_{ca}$ ; $x_c$ = partie réelle maximale des singularités.</li><li>$\\TL(f')=pF-f(0^+)$ ; $\\TL(tf)=-F'$ ; $\\TL(\\int_0^tf)=F/p$ ; retard $e^{-ap}F$ ; $\\TL(e^{at}f)=F(p-a)$.</li><li>Convolution causale $\\to$ produit ; valeurs initiale et finale par $pF(p)$.</li><li>Inversion : table, éléments simples, Bromwich + résidus. EDO : $Y=P/H+F/H$.</li></ul>",
-     "debut": 40,
-     "fin": 44,
-     "partie": "Partie II Analyse complexe, transformées de Laplace et en Z",
+     "debut": 15,
+     "fin": 19,
+     "partie": null,
      "sections": [
       {
        "titre": "Définition et domaine de convergence",
-       "page": 40
+       "page": 15
       },
       {
        "titre": "Propriétés",
-       "page": 41
+       "page": 16
       },
       {
        "titre": "Table",
-       "page": 42
+       "page": 17
       },
       {
        "titre": "Inversion",
-       "page": 42
+       "page": 17
       },
       {
        "titre": "Applications",
-       "page": 43
+       "page": 18
       }
      ],
      "methodes": [
       {
-       "num": "8.1",
+       "num": "3.1",
        "titre": "Inverser une transformée de Laplace",
-       "page": 43
+       "page": 18
       },
       {
-       "num": "8.2",
+       "num": "3.2",
        "titre": "Équation différentielle linéaire à coefficients constants",
-       "page": 43
+       "page": 18
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-08.pdf"
+     "pdf": "docs/analyse-complexe/chapitre-03.pdf"
     },
     {
-     "n": 9,
+     "n": 4,
      "titre": "Transformée en Z",
      "intro": "En pratique, on n'a accès qu'à une version échantillonnée des signaux. La transformée en Z offre pour les suites un traitement analogue à celui de la transformée de Laplace : elle est aux récurrences linéaires ce que Laplace est aux équations différentielles.",
      "objectifs": "<ul><li>Définir la transformée en Z et sa région de convergence.</li><li>Utiliser ses propriétés et la formule d'inversion.</li><li>Résoudre des récurrences linéaires ; relier transformée en Z et transformée de Laplace.</li></ul>",
-     "prerequis": "Séries de Laurent et résidus (chapitre 7) ; transformée de Laplace (chapitre 8).",
+     "prerequis": "Séries de Laurent et résidus (chapitre 2) ; transformée de Laplace (chapitre 3).",
      "essentiel": "<ul><li>$U(z)=\\sum u_nz^{-n}$, convergente sur un anneau $R^-&lt;|z|&lt;R^+$.</li><li>Retard $z^{-n_0}$ ; $a^nx\\to X(z/a)$ ; $nx\\to-zX'$ ; convolution $\\to$ produit.</li><li>$u(n)=\\frac1{2i\\pi}\\oint U(z)z^{n-1}\\dd z$ ; $a^n\\1_{n\\ge0}\\leftrightarrow\\frac1{1-az^{-1}}$, $|z|&gt;|a|$.</li><li>Échantillonnage : $z=e^{pT}$.</li></ul>",
-     "debut": 45,
-     "fin": 48,
-     "partie": "Partie II Analyse complexe, transformées de Laplace et en Z",
+     "debut": 20,
+     "fin": 23,
+     "partie": null,
      "sections": [
       {
        "titre": "Définition et propriétés",
-       "page": 45
+       "page": 20
       },
       {
        "titre": "Applications",
-       "page": 46
+       "page": 21
       }
      ],
      "methodes": [
       {
-       "num": "9.1",
+       "num": "4.1",
        "titre": "Résoudre une récurrence linéaire",
-       "page": 47
+       "page": 22
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-09.pdf"
-    },
+     "pdf": "docs/analyse-complexe/chapitre-04.pdf"
+    }
+   ]
+  },
+  {
+   "id": "probabilites",
+   "matiere": "maths",
+   "titre": "Probabilités",
+   "description": "Espaces de probabilité, variables et vecteurs aléatoires, lois usuelles, fonction caractéristique, théorèmes limites.",
+   "pages": 19,
+   "pdf": "docs/probabilites.pdf",
+   "fiche": "docs/probabilites/fiche-revision.pdf",
+   "chapitres": [
     {
-     "n": 10,
+     "n": 1,
      "titre": "Espaces de probabilité",
-     "intro": "La théorie des probabilités, née au <span class=\"sc\">xvii</span><sup>e</sup> siècle (Pascal, Fermat), cherche les régularités du hasard ; elle sert aussi bien en physique (mécanique quantique) qu'en ingénierie (sûreté de fonctionnement, estimation de paramètres). Mathématiquement, une probabilité est une mesure de masse totale 1 (chapitre 2).",
+     "intro": "La théorie des probabilités, née au <span class=\"sc\">xvii</span><sup>e</sup> siècle (Pascal, Fermat), cherche les régularités du hasard ; elle sert aussi bien en physique (mécanique quantique) qu'en ingénierie (sûreté de fonctionnement, estimation de paramètres). Mathématiquement, une probabilité est une mesure de masse totale 1 (livre <em>Intégration</em>, chapitre 2).",
      "objectifs": "<ul><li>Définir tribu, probabilité, espace probabilisé.</li><li>Construire des probabilités discrètes et la probabilité uniforme.</li><li>Utiliser conditionnement, probabilités composées et totales, formule de Bayes.</li><li>Distinguer indépendance deux à deux et mutuelle ; lemme de Borel–Cantelli.</li></ul>",
-     "prerequis": "Théorie des ensembles, dénombrement ; mesure (chapitre 2).",
+     "prerequis": "Théorie des ensembles, dénombrement ; mesure (livre <em>Intégration</em>, chapitre 2).",
      "essentiel": "<ul><li>Tribu (stable par complémentaire et réunion dénombrable) ; probabilité $\\sigma$-additive de masse 1.</li><li>$\\P(A\\cup B)=\\P(A)+\\P(B)-\\P(A\\cap B)$ ; continuité monotone.</li><li>$\\P(A|B)=\\P(A\\cap B)/\\P(B)$ ; probabilités composées, totales ; Bayes.</li><li>Indépendance : $\\P(A\\cap B)=\\P(A)\\P(B)$ ; mutuelle $\\ne$ deux à deux ; Borel–Cantelli.</li></ul>",
-     "debut": 50,
-     "fin": 52,
-     "partie": "Partie III Probabilités",
+     "debut": 4,
+     "fin": 6,
+     "partie": null,
      "sections": [
       {
        "titre": "Événements et univers",
-       "page": 50
+       "page": 4
       },
       {
        "titre": "Premiers exemples",
-       "page": 51
+       "page": 5
       },
       {
        "titre": "Conditionnement",
-       "page": 51
+       "page": 5
       },
       {
        "titre": "Indépendance",
-       "page": 52
+       "page": 6
       }
      ],
      "methodes": [
       {
-       "num": "10.1",
+       "num": "1.1",
        "titre": "Conditionner",
-       "page": 52
+       "page": 6
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-10.pdf"
+     "pdf": "docs/probabilites/chapitre-01.pdf"
     },
     {
-     "n": 11,
+     "n": 2,
      "titre": "Variables aléatoires réelles",
      "intro": "L'objet d'intérêt n'est souvent pas l'univers lui-même mais une quantité numérique mesurée sur l'expérience : une variable aléatoire. Ce qui compte alors est sa <em>loi</em>, mesure de probabilité sur $\\R$.",
      "objectifs": "<ul><li>Définir variable aléatoire, loi, fonction de répartition, espérance, variance.</li><li>Connaître les lois discrètes (uniforme, Bernoulli, binomiale, géométrique, Poisson) et à densité (uniforme, exponentielle, gamma, normale, log-normale, Cauchy).</li><li>Calculer la loi d'une fonction d'une variable à densité.</li></ul>",
-     "prerequis": "Chapitre 10 ; intégrale de Lebesgue (chapitre 2).",
+     "prerequis": "Chapitre 1 ; intégrale de Lebesgue (livre <em>Intégration</em>, chapitre 2).",
      "essentiel": "<ul><li>Loi $\\P_X$, fonction de répartition $F$ ; transfert $\\Esp\\Phi(X)=\\int\\Phi\\dd\\P_X$.</li><li>$V(X)=\\Esp X^2-(\\Esp X)^2$ ; variance additive pour des variables indépendantes.</li><li>Tables des lois discrètes et à densité (moyenne, variance, génératrice) ; lois sans mémoire : géométrique, exponentielle.</li><li>Densité de $\\Psi(X)$ : $f_X(x(y))|x'(y)|$.</li></ul>",
-     "debut": 53,
-     "fin": 57,
-     "partie": "Partie III Probabilités",
+     "debut": 7,
+     "fin": 11,
+     "partie": null,
      "sections": [
       {
        "titre": "Outils généraux",
-       "page": 53
+       "page": 7
       },
       {
        "titre": "Variables discrètes",
-       "page": 54
+       "page": 8
       },
       {
        "titre": "Variables à densité",
-       "page": 55
+       "page": 9
       }
      ],
      "methodes": [
       {
-       "num": "11.1",
+       "num": "2.1",
        "titre": "Loi de $Y=g(X)$",
-       "page": 57
+       "page": 11
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-11.pdf"
+     "pdf": "docs/probabilites/chapitre-02.pdf"
     },
     {
-     "n": 12,
+     "n": 3,
      "titre": "Vecteurs aléatoires",
      "intro": "Étudier plusieurs variables simultanément, $X=(X_1,\\dots,X_d)$, permet de prendre en compte la structure d'association qui les lie. La plupart des notions univariées se généralisent, mais de nouveaux phénomènes apparaissent : covariance, lois marginales, indépendance.",
      "objectifs": "<ul><li>Définir la loi, la fonction de répartition et la densité d'un vecteur aléatoire.</li><li>Calculer espérance, matrice de covariance, coefficient de corrélation.</li><li>Connaître la loi multinomiale et les vecteurs gaussiens.</li><li>Obtenir les lois marginales, tester l'indépendance, changer de variables.</li></ul>",
-     "prerequis": "Chapitre 11 ; Fubini et changement de variables (chapitre 2).",
+     "prerequis": "Chapitre 2 ; Fubini et changement de variables (livre <em>Intégration</em>, chapitre 2).",
      "essentiel": "<ul><li>Loi conjointe $\\Rightarrow$ marginales (somme ou intégrale), pas l'inverse.</li><li>$\\Lambda$ symétrique positive ; $\\rho\\in[-1,1]$ ; indépendance $\\Rightarrow$ non-corrélation (équivalence si gaussien).</li><li>Indépendance $\\iff$ $F$ ou densité produit.</li><li>Densité de $T(X)$ : $f\\circ T^{-1}\\,|J_{T^{-1}}|$ ; somme indépendante : convolution des densités.</li></ul>",
-     "debut": 58,
-     "fin": 61,
-     "partie": "Partie III Probabilités",
+     "debut": 12,
+     "fin": 15,
+     "partie": null,
      "sections": [
       {
        "titre": "Loi d'un vecteur aléatoire",
-       "page": 58
+       "page": 12
       },
       {
        "titre": "Espérance, covariance, corrélation",
-       "page": 59
+       "page": 13
       },
       {
        "titre": "Deux exemples",
-       "page": 59
+       "page": 13
       },
       {
        "titre": "Calculer avec plusieurs aléas",
-       "page": 60
+       "page": 14
       }
      ],
      "methodes": [
       {
-       "num": "12.1",
+       "num": "3.1",
        "titre": "Loi de $X+Y$, $XY$, $X/Y$",
-       "page": 61
+       "page": 15
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-12.pdf"
+     "pdf": "docs/probabilites/chapitre-03.pdf"
     },
     {
-     "n": 13,
+     "n": 4,
      "titre": "Fonction caractéristique et théorèmes limites",
      "intro": "La fonction caractéristique, transformée de Fourier d'une loi, caractérise celle-ci et transforme les sommes de variables indépendantes en produits. Elle permet d'établir les grands théorèmes limites : loi des grands nombres (la fréquence empirique converge vers la probabilité) et théorème central limite (les fluctuations sont gaussiennes).",
      "objectifs": "<ul><li>Calculer et utiliser la fonction caractéristique.</li><li>Connaître les modes de convergence (loi, $L^p$, probabilité, presque sûre) et leurs liens.</li><li>Énoncer et appliquer la loi des grands nombres et le théorème central limite.</li></ul>",
-     "prerequis": "Chapitres 11 et 12 ; transformée de Fourier (chapitre 4).",
+     "prerequis": "Chapitres 2 et 3 ; transformée de Fourier (livre <em>Intégration</em>, chapitre 4).",
      "essentiel": "<ul><li>$\\varphi_X(t)=\\Esp e^{itX}$ caractérise la loi ; somme indépendante $\\to$ produit ; $\\varphi^{(k)}(0)=i^k\\Esp X^k$.</li><li>Loi (via $F$ ou Lévy) $\\Leftarrow$ probabilité $\\Leftarrow$ $L^1$ $\\Leftarrow$ $L^2$ ; p.s. $\\Rightarrow$ probabilité.</li><li>Markov, Bienaymé–Tchebychev.</li><li>LGN : $\\bar X_n\\to m$ (probabilité, p.s.) ; TCL : $\\sqrt n(\\bar X_n-m)/\\sigma\\to\\mathcal N(0,1)$ en loi.</li></ul>",
-     "debut": 62,
-     "fin": 65,
-     "partie": "Partie III Probabilités",
+     "debut": 16,
+     "fin": 19,
+     "partie": null,
      "sections": [
       {
        "titre": "Fonction caractéristique",
-       "page": 62
+       "page": 16
       },
       {
        "titre": "Modes de convergence",
-       "page": 63
+       "page": 17
       },
       {
        "titre": "Théorèmes limites",
-       "page": 64
+       "page": 18
       }
      ],
      "methodes": [
       {
-       "num": "13.1",
+       "num": "4.1",
        "titre": "Identifier la loi d'une somme indépendante",
-       "page": 63
+       "page": 17
       }
      ],
-     "pdf": "docs/mathematiques-ingenieur/chapitre-13.pdf"
+     "pdf": "docs/probabilites/chapitre-04.pdf"
     }
    ]
   },
@@ -2743,6 +2774,7 @@ window.LC = {
    "description": "Prononciation, noms, conjugaison, phrase, négation, cas, nombres, se présenter, vocabulaire et textes modèles.",
    "pages": 42,
    "pdf": "docs/allemand-le-colle.pdf",
+   "fiche": "docs/allemand-le-colle/fiche-revision.pdf",
    "chapitres": [
     {
      "n": 1,

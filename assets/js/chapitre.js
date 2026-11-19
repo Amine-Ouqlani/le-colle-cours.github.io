@@ -17,7 +17,7 @@ $('#contenu').innerHTML = `
     <a class="btn plein" href="${urlLecteur(L, C)}">Lire le chapitre</a>
     ${lienPdf(C.pdf, 'Télécharger le chapitre (PDF)', 'btn')}
   </div>
-  <p class="links" style="margin-top:10px"><span class="tag">${C.fin - C.debut + 1} pages · pages ${C.debut} à ${C.fin} du livre</span>${lienPdf(L.pdf, 'Livre complet (PDF)')}</p>
+  <p class="links" style="margin-top:10px"><span class="tag">${C.fin - C.debut + 1} pages · pages ${C.debut} à ${C.fin} du livre</span>${lienPdf(L.pdf, 'Livre complet (PDF)')}${L.fiche ? `<a class="dl" href="${L.fiche}" target="_blank" rel="noopener">Fiche de révision</a>` : ''}</p>
   ${C.objectifs || C.prerequis ? `<div class="cadre formules">
     ${C.objectifs ? `<div class="bloc"><h3>Objectifs</h3>${C.objectifs}</div>` : ''}
     ${C.prerequis ? `<div class="bloc"><h3>Prérequis</h3><p>${C.prerequis}</p></div>` : ''}

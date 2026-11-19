@@ -2,7 +2,7 @@
 """Génère les données du site Le Collé à partir des livres compilés.
 
 Entrées : les .tex finaux (dossier FINAL) et les .aux/.met de compilation (dossier V2/<n>/).
-Sorties : site/data/livres.js, site/docs/<livre>.pdf, site/docs/<livre>/chapitre-NN.pdf.
+Sorties : site/data/livres.js, site/docs/<livre>.pdf, site/docs/<livre>/chapitre-NN.pdf, site/docs/<livre>/fiche-revision.pdf.
 """
 import json, re, shutil, sys
 from pathlib import Path
@@ -10,13 +10,14 @@ import pypdf
 
 FINAL = Path('/home/claude/final')
 V2 = Path('/home/claude/v2')
+FICHES = Path('/home/claude/fiches/out')
 SITE = Path(sys.argv[1] if len(sys.argv) > 1 else '/home/claude/site')
 
 MATIERES = [
     ('electricite', 'Électricité et électronique', "Circuits linéaires, mesure et puissance électrique."),
     ('numerique', 'Numérique et informatique', "Logique, circuits numériques, architecture des processeurs et conception d'algorithmes."),
     ('physique', 'Physique', "Électromagnétisme, propagation dans les lignes et physique des matériaux."),
-    ('maths', 'Mathématiques', "Analyse, transformations, fonctions complexes et probabilités."),
+    ('maths', 'Mathématiques', "Intégration et analyse de Fourier, analyse complexe, probabilités."),
     ('langues', 'Langues', "Allemand, niveau débutant."),
 ]
 LIVRES = [
@@ -36,8 +37,12 @@ LIVRES = [
      "Modèle RLCG, propagation, ligne chargée et adaptation, paramètres S, réflectométrie, couplage et diaphonie."),
     (5, 'physique-des-materiaux', 'physique', 'Physique des matériaux',
      "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, sphères polarisée et aimantée, matériaux magnétiques."),
-    (6, 'mathematiques-ingenieur', 'maths', "Mathématiques pour l'ingénieur",
-     "Espaces normés, intégrale de Lebesgue, Fourier, distributions, analyse complexe, Laplace, transformée en Z, probabilités."),
+    (11, 'integration', 'maths', "Intégration",
+     "Espaces normés, intégrale de Lebesgue, séries et transformée de Fourier, convolution, distributions et échantillonnage."),
+    (12, 'analyse-complexe', 'maths', "Analyse complexe",
+     "Fonctions holomorphes, intégration complexe et théorème des résidus, transformée de Laplace, transformée en Z."),
+    (13, 'probabilites', 'maths', "Probabilités",
+     "Espaces de probabilité, variables et vecteurs aléatoires, lois usuelles, fonction caractéristique, théorèmes limites."),
     (7, 'allemand-le-colle', 'langues', 'Allemand',
      "Prononciation, noms, conjugaison, phrase, négation, cas, nombres, se présenter, vocabulaire et textes modèles."),
 ]
@@ -255,8 +260,12 @@ def main():
             with open(d / f"chapitre-{c['n']:02d}.pdf", 'wb') as f:
                 w.write(f)
             c['pdf'] = f"docs/{ident}/chapitre-{c['n']:02d}.pdf"
+        fiche = None
+        if (FICHES / f'{ident}.pdf').exists():
+            shutil.copy(FICHES / f'{ident}.pdf', d / 'fiche-revision.pdf')
+            fiche = f'docs/{ident}/fiche-revision.pdf'
         livres.append({'id': ident, 'matiere': mat, 'titre': titre, 'description': desc, 'pages': total,
-                       'pdf': f'docs/{ident}.pdf', 'chapitres': chapitres})
+                       'pdf': f'docs/{ident}.pdf', 'fiche': fiche, 'chapitres': chapitres})
         print(f'{ident}: {len(chapitres)} chapitres, {total} pages')
     donnees = {'matieres': [{'id': a, 'titre': b, 'description': c} for a, b, c in MATIERES], 'livres': livres}
     (SITE / 'data' / 'livres.js').write_text(

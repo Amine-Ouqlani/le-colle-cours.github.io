@@ -19,7 +19,7 @@ $('#contenu').innerHTML = `
   ${livresDe(M.id).map(l => `<section class="livre" id="${l.id}">
     <h2>${esc(l.titre)}</h2>
     <p>${esc(l.description)}</p>
-    <p class="links" style="margin-top:10px"><a href="${urlLecteur(l)}">Lire le livre complet</a>${lienPdf(l.pdf, 'Télécharger le PDF')}<span class="tag">${l.pages} pages</span></p>
+    <p class="links" style="margin-top:10px"><a href="${urlLecteur(l)}">Lire le livre complet</a>${lienPdf(l.pdf, 'Télécharger le PDF')}${l.fiche ? `<a class="dl" href="${l.fiche}" target="_blank" rel="noopener">Fiche de révision</a>` : ''}<span class="tag">${l.pages} pages</span></p>
     <ul class="chapitres formules">${chapitres(l)}</ul>
   </section>`).join('')}`;
 renderMath($('#contenu'));
