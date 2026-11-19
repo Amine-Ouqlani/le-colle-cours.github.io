@@ -271,7 +271,7 @@ window.LC = {
    "matiere": "electricite",
    "titre": "Métrologie et circuits de puissance",
    "description": "Unités et incertitudes, instruments et mesures électriques, puissance en monophasé et systèmes triphasés.",
-   "pages": 49,
+   "pages": 50,
    "pdf": "docs/metrologie-circuits-puissance.pdf",
    "fiche": "docs/metrologie-circuits-puissance/fiche-revision.pdf",
    "chapitres": [
@@ -312,7 +312,7 @@ window.LC = {
      "prerequis": "Statistiques élémentaires (moyenne, écart-type, loi normale) ; dérivées partielles.",
      "essentiel": "<ul><li>$\\varepsilon_{\\mathrm{sys}}=\\bar m-M_{\\mathrm{vrai}}$ (justesse, corrigeable) ; $\\varepsilon_{\\text{aléa}}=m_k-\\bar m$ (fidélité, non corrigeable).</li><li>$\\sigma^2=\\frac1{n-1}\\sum(m_k-\\bar m)^2$ ; type A : $u=\\sigma/\\sqrt n$ ; type B : données constructeur + loi a priori.</li><li>Classe : $\\varepsilon_{\\mathrm{rel}}=\\text{classe}\\times\\text{calibre}/\\text{déviation}$ ; produits/quotients : erreurs relatives additionnées.</li><li>$u_c^2=\\sum(\\partial f/\\partial x_i)^2u^2(x_i)+2\\sum\\sum(\\partial f/\\partial x_i)(\\partial f/\\partial x_j)u_iu_jr_{ij}$.</li><li>$\\Delta M=k\\,u$ ($k=2$ : 95,45 % ; $k=3$ : 99,73 %) ou Student $t_{\\%}$ ; $M=m\\pm\\Delta M|_{p\\%}$.</li><li>GUM : analyser (5 M), modéliser, estimer, composer, élargir, exprimer.</li></ul>",
      "debut": 10,
-     "fin": 16,
+     "fin": 17,
      "partie": null,
      "sections": [
       {
@@ -340,25 +340,25 @@ window.LC = {
      "objectifs": "<ul><li>Classer les appareils et les méthodes de mesure.</li><li>Connaître le principe, la grandeur mesurée et les limites des appareils magnétoélectriques, à redresseur, ferromagnétiques et électrodynamiques.</li><li>Utiliser un wattmètre (montages amont et aval, corrections).</li><li>Connaître la structure des appareils électroniques analogiques et numériques ; calculer l'erreur d'un appareil numérique.</li></ul>",
      "prerequis": "Chapitre 2 ; valeurs moyenne et efficace ; amplificateur opérationnel.",
      "essentiel": "<ul><li>Mesure directe (grandeur active, énergie prélevée négligeable) / indirecte ; méthodes de zéro, déviation, résonance, comptage.</li><li>Magnétoélectrique : $\\theta\\propto\\langle i\\rangle$, linéaire, polarisé ; shunt $I/i=1+r/S$ (100 mV) ; voltmètre en $\\Omega$/V.</li><li>À redresseur : $\\langle|v|\\rangle=0{,}9V_{\\mathrm{eff}}$, juste en sinusoïdal seulement.</li><li>Ferromagnétique : $\\theta\\propto I_{\\mathrm{eff}}^2$, non polarisé, 15 Hz – quelques centaines de Hz, forte consommation.</li><li>Électrodynamique : $\\theta\\propto\\langle i_1i_2\\rangle$ ; wattmètre : amont (+ circuit courant), aval (+ circuit tension $U^2/R_V$), $P_\\ell/P\\approx1+\\tan\\varphi\\tan\\psi$.</li><li>Électronique analogique : $Z_e$ élevée, large bande, 1 à 3 % ; TRMC $=20\\log(A_{md}/A_{mc})&gt;120$ dB ; TRMS : carré, moyenne, racine.</li><li>Numérique : erreur $=\\pm(x\\,\\%~\\mathrm{VL}+y~\\mathrm U)$ ; $3\\frac12$ digits = 2000 points.</li></ul>",
-     "debut": 17,
-     "fin": 25,
+     "debut": 18,
+     "fin": 26,
      "partie": null,
      "sections": [
       {
        "titre": "Généralités",
-       "page": 17
-      },
-      {
-       "titre": "Appareils électromécaniques",
        "page": 18
       },
       {
+       "titre": "Appareils électromécaniques",
+       "page": 19
+      },
+      {
        "titre": "Appareils électroniques analogiques",
-       "page": 23
+       "page": 24
       },
       {
        "titre": "Appareils électroniques numériques",
-       "page": 24
+       "page": 25
       }
      ],
      "methodes": [],
@@ -371,41 +371,41 @@ window.LC = {
      "objectifs": "<ul><li>Connaître les valeurs caractéristiques d'un signal périodique et les facteurs de forme, de crête, de déformation.</li><li>Choisir l'appareil adapté pour une valeur continue, moyenne ou efficace.</li><li>Mesurer une impédance (méthodes indirectes, ponts) ; passer du modèle série au modèle parallèle.</li><li>Mesurer fréquences et phases ; connaître le capteur LEM.</li></ul>",
      "prerequis": "Chapitres 2 et 3 ; impédances complexes.",
      "essentiel": "<ul><li>$\\bar U=\\frac1T\\int u$ ; $U_{\\mathrm{eff}}=\\sqrt{\\frac1T\\int u^2}$ ; $F_f=X_{\\mathrm{eff}}/X_{\\mathrm{moy}}$, $F_c=X_M/X_{\\mathrm{eff}}$, $F_d=X_{1\\mathrm{eff}}/X_{\\mathrm{eff}}$, $\\tau=X_{\\mathrm{eff}AC}/X_{DC}$.</li><li>$V_{\\mathrm{eff}}^2=V_{\\mathrm{moy}}^2+\\sum V_i^2=V_{\\mathrm{moy}}^2+V'^2_{\\mathrm{eff}}$ ; signal déformé : TRMS.</li><li>Capacitif : $R_s=\\frac{R_p}{1+(R_pC_p\\omega)^2}$, $C_s=C_p(1+\\tan^2\\delta)$, $Q=1/\\tan\\delta$ ; inductif : $R_p=R_s(1+Q^2)$, $L_p=L_s\\frac{1+Q^2}{Q^2}$.</li><li>Ponts : P/Q, $\\cp Z_x=\\frac PQ\\cp Z$ (même nature) ; P.Q, $\\cp Z_x\\cp Z=PQ$ (nature opposée) ; Sauty, Nernst, Hay ($Q$ élevé), Maxwell ($Q$ faible).</li><li>$f=n/t_0$ (fréquencemètre) ; $T=n/(Nf_0)$ (périodemètre) ; $\\varphi=180^\\circ\\,d/D$.</li><li>LEM : compensation de flux, $i_c/i_p\\approx1/1000$, mesure continu et alternatif, isolée.</li></ul>",
-     "debut": 26,
-     "fin": 35,
+     "debut": 27,
+     "fin": 36,
      "partie": null,
      "sections": [
       {
        "titre": "Valeurs caractéristiques d'un signal périodique",
-       "page": 26
-      },
-      {
-       "titre": "Mesure des tensions et des courants",
        "page": 27
       },
       {
+       "titre": "Mesure des tensions et des courants",
+       "page": 28
+      },
+      {
        "titre": "Mesure des impédances",
-       "page": 29
+       "page": 30
       },
       {
        "titre": "Mesure des fréquences et des phases",
-       "page": 31
+       "page": 33
       },
       {
        "titre": "Capteurs de courant isolés",
-       "page": 33
+       "page": 34
       }
      ],
      "methodes": [
       {
        "num": "4.1",
        "titre": "Choisir l'appareil pour une tension ou un courant",
-       "page": 29
+       "page": 30
       },
       {
        "num": "4.2",
        "titre": "Mesurer un déphasage à l'oscilloscope",
-       "page": 33
+       "page": 34
       }
      ],
      "pdf": "docs/metrologie-circuits-puissance/chapitre-04.pdf"
@@ -417,36 +417,36 @@ window.LC = {
      "objectifs": "<ul><li>Définir puissances instantanée, active, apparente, complexe, réactive et le facteur de puissance.</li><li>Connaître le comportement énergétique de $R$, $L$, $C$.</li><li>Faire un bilan de puissance par le théorème de Boucherot.</li><li>Calculer la puissance active en régime non sinusoïdal.</li></ul>",
      "prerequis": "Représentation complexe ; séries de Fourier ; chapitre 4 (valeurs efficaces).",
      "essentiel": "<ul><li>$p=vi$ ; RPS : $p=VI\\cos\\varphi-VI\\cos(2\\omega t-\\varphi)$.</li><li>$P=\\langle p\\rangle=VI\\cos\\varphi$ (W) ; $Q=VI\\sin\\varphi$ (var) ; $S=VI$ (VA) ; $\\cp S=\\cp V\\cp I^*=P+jQ$ ; $S^2=P^2+Q^2$.</li><li>$f_p=P/S$ ; en sinusoïdal $f_p=\\cos\\varphi$. $S$ dimensionne l'installation.</li><li>$R$ : $P=RI^2$, $Q=0$ ; $L$ : $Q=L\\omega I^2&gt;0$ ; $C$ : $Q=-C\\omega V^2&lt;0$ ; $L$ et $C$ : $P=0$.</li><li>Boucherot : $P$ et $Q$ s'additionnent, pas $S$.</li><li>Non sinusoïdal : $P=\\sum_kV_kI_k\\cos(\\varphi_k-\\psi_k)$, seuls les harmoniques de même rang comptent.</li></ul>",
-     "debut": 36,
-     "fin": 41,
+     "debut": 37,
+     "fin": 42,
      "partie": null,
      "sections": [
       {
        "titre": "Puissance instantanée",
-       "page": 36
+       "page": 37
       },
       {
        "titre": "Régime sinusoïdal permanent",
-       "page": 36
+       "page": 37
       },
       {
        "titre": "Puissance et énergie dans les dipôles passifs",
-       "page": 38
-      },
-      {
-       "titre": "Théorème de Boucherot",
        "page": 39
       },
       {
-       "titre": "Régime périodique non sinusoïdal",
+       "titre": "Théorème de Boucherot",
        "page": 40
+      },
+      {
+       "titre": "Régime périodique non sinusoïdal",
+       "page": 41
       }
      ],
      "methodes": [
       {
        "num": "5.1",
        "titre": "Faire un bilan de puissance",
-       "page": 39
+       "page": 40
       }
      ],
      "pdf": "docs/metrologie-circuits-puissance/chapitre-05.pdf"
@@ -458,48 +458,48 @@ window.LC = {
      "objectifs": "<ul><li>Justifier l'usage de la haute tension, de l'alternatif et du triphasé.</li><li>Calculer la tension du neutre et les courants d'une charge symétrique en étoile, neutre relié ou non.</li><li>Connaître systèmes direct, inverse, homopolaire ; tensions simples et composées.</li><li>Construire le schéma monophasé équivalent (inductance cyclique, équivalences triangle-étoile).</li><li>Calculer $P$, $Q$, $S$ en triphasé équilibré.</li></ul>",
      "prerequis": "Chapitre 5 ; représentation complexe ; théorème de Kennelly.",
      "essentiel": "<ul><li>HT : $P_J=RP^2/(U^2\\cos^2\\varphi)$ ; alternatif : transformateurs, coupure au passage par zéro ; triphasé : pas de puissance fluctuante, champ tournant, 230/400 V, moitié moins de câble.</li><li>Étoile, charge symétrique : $v_{NO}=\\frac{e_1+e_2+e_3}3$, $i_k=(e_k-v_{NO})/Z$ ; neutre relié : $i_k=e_k/Z$.</li><li>Direct ($-\\frac{2\\pi}3$), inverse ($+\\frac{2\\pi}3$) : somme nulle ; homopolaire : $3e_1$, pas de courant sans neutre.</li><li>$\\cp U_{12}=\\sqrt3\\cp V_1e^{j\\pi/6}$ (direct), $U=\\sqrt3V$ ; courants en retard de $\\varphi$.</li><li>Monophasé équivalent : $L_c=L-M$ (direct/inverse), $L+2M$ (homopolaire, neutre relié) ; $\\cp Z_Y=\\cp Z_\\Delta/3$ ; $\\cp E_1=\\cp E_{12}e^{-j\\pi/6}/\\sqrt3$.</li><li>$P=\\sqrt3UI\\cos\\varphi$, $Q=\\sqrt3UI\\sin\\varphi$, $S=\\sqrt3UI$, $\\varphi=(\\cp V,\\cp I)$ ; $p(t)=P$ constante.</li><li>Réseau 3 fils : deux wattmètres, $P=\\langle u_{13}i_1+u_{23}i_2\\rangle$ dans tous les cas.</li></ul>",
-     "debut": 42,
-     "fin": 49,
+     "debut": 43,
+     "fin": 50,
      "partie": null,
      "sections": [
       {
        "titre": "Pourquoi le triphasé",
-       "page": 42
+       "page": 43
       },
       {
        "titre": "Définitions et couplages",
-       "page": 43
-      },
-      {
-       "titre": "Étoile : tension du neutre",
-       "page": 43
-      },
-      {
-       "titre": "Régime sinusoïdal : direct, inverse, homopolaire",
        "page": 44
       },
       {
-       "titre": "Tensions simples, tensions composées, courants",
+       "titre": "Étoile : tension du neutre",
+       "page": 44
+      },
+      {
+       "titre": "Régime sinusoïdal : direct, inverse, homopolaire",
        "page": 45
       },
       {
-       "titre": "Schéma monophasé équivalent",
+       "titre": "Tensions simples, tensions composées, courants",
        "page": 46
       },
       {
-       "titre": "Montages triangle",
+       "titre": "Schéma monophasé équivalent",
        "page": 47
       },
       {
-       "titre": "Puissance en triphasé équilibré",
+       "titre": "Montages triangle",
        "page": 48
+      },
+      {
+       "titre": "Puissance en triphasé équilibré",
+       "page": 49
       }
      ],
      "methodes": [
       {
        "num": "6.1",
        "titre": "Construire le schéma monophasé équivalent",
-       "page": 48
+       "page": 49
       }
      ],
      "pdf": "docs/metrologie-circuits-puissance/chapitre-06.pdf"
@@ -2124,7 +2124,7 @@ window.LC = {
       },
       {
        "titre": "Énergie électrique",
-       "page": 21
+       "page": 22
       }
      ],
      "methodes": [],
