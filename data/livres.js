@@ -2636,7 +2636,7 @@ window.LC = {
    "matiere": "maths",
    "titre": "Probabilités",
    "description": "Espaces de probabilité, variables et vecteurs aléatoires, lois usuelles, fonction caractéristique, théorèmes limites.",
-   "pages": 19,
+   "pages": 25,
    "pdf": "docs/probabilites.pdf",
    "fiche": "docs/probabilites/fiche-revision.pdf",
    "chapitres": [
@@ -2683,9 +2683,9 @@ window.LC = {
      "intro": "L'objet d'intérêt n'est souvent pas l'univers lui-même mais une quantité numérique mesurée sur l'expérience : une variable aléatoire. Ce qui compte alors est sa <em>loi</em>, mesure de probabilité sur $\\R$.",
      "objectifs": "<ul><li>Définir variable aléatoire, loi, fonction de répartition, espérance, variance.</li><li>Connaître les lois discrètes (uniforme, Bernoulli, binomiale, géométrique, Poisson) et à densité (uniforme, exponentielle, gamma, normale, log-normale, Cauchy).</li><li>Calculer la loi d'une fonction d'une variable à densité.</li></ul>",
      "prerequis": "Chapitre 1 ; intégrale de Lebesgue (livre <em>Intégration</em>, chapitre 2).",
-     "essentiel": "<ul><li>Loi $\\P_X$, fonction de répartition $F$ ; transfert $\\Esp\\Phi(X)=\\int\\Phi\\dd\\P_X$.</li><li>$V(X)=\\Esp X^2-(\\Esp X)^2$ ; variance additive pour des variables indépendantes.</li><li>Tables des lois discrètes et à densité (moyenne, variance, génératrice) ; lois sans mémoire : géométrique, exponentielle.</li><li>Densité de $\\Psi(X)$ : $f_X(x(y))|x'(y)|$.</li></ul>",
+     "essentiel": "<ul><li>Loi $\\P_X$, fonction de répartition $F$ ; transfert $\\Esp\\Phi(X)=\\int\\Phi\\dd\\P_X$.</li><li>$V(X)=\\Esp X^2-(\\Esp X)^2$ ; variance additive pour des variables indépendantes.</li><li>Tables des lois discrètes et à densité (moyenne, variance, génératrice) ; lois sans mémoire : géométrique, exponentielle.</li><li>Densité de $\\Psi(X)$ : $f_X(x(y))|x'(y)|$ ; par morceaux : somme des contributions ; discret : somme sur les antécédents.</li><li>Variable mixte : atomes $p_i$ + densité $p$, $\\sum p_i+\\int p=1$.</li></ul>",
      "debut": 7,
-     "fin": 11,
+     "fin": 12,
      "partie": null,
      "sections": [
       {
@@ -2714,35 +2714,39 @@ window.LC = {
      "n": 3,
      "titre": "Vecteurs aléatoires",
      "intro": "Étudier plusieurs variables simultanément, $X=(X_1,\\dots,X_d)$, permet de prendre en compte la structure d'association qui les lie. La plupart des notions univariées se généralisent, mais de nouveaux phénomènes apparaissent : covariance, lois marginales, indépendance.",
-     "objectifs": "<ul><li>Définir la loi, la fonction de répartition et la densité d'un vecteur aléatoire.</li><li>Calculer espérance, matrice de covariance, coefficient de corrélation.</li><li>Connaître la loi multinomiale et les vecteurs gaussiens.</li><li>Obtenir les lois marginales, tester l'indépendance, changer de variables.</li></ul>",
+     "objectifs": "<ul><li>Définir la loi, la fonction de répartition et la densité d'un vecteur aléatoire.</li><li>Calculer espérance, matrice de covariance, coefficient de corrélation.</li><li>Connaître la loi multinomiale et les vecteurs gaussiens (transformation affine, lois conditionnelles, $\\chi^2$, Student, Fisher).</li><li>Obtenir les lois marginales, tester l'indépendance, changer de variables.</li></ul>",
      "prerequis": "Chapitre 2 ; Fubini et changement de variables (livre <em>Intégration</em>, chapitre 2).",
-     "essentiel": "<ul><li>Loi conjointe $\\Rightarrow$ marginales (somme ou intégrale), pas l'inverse.</li><li>$\\Lambda$ symétrique positive ; $\\rho\\in[-1,1]$ ; indépendance $\\Rightarrow$ non-corrélation (équivalence si gaussien).</li><li>Indépendance $\\iff$ $F$ ou densité produit.</li><li>Densité de $T(X)$ : $f\\circ T^{-1}\\,|J_{T^{-1}}|$ ; somme indépendante : convolution des densités.</li></ul>",
-     "debut": 12,
-     "fin": 15,
+     "essentiel": "<ul><li>Loi conjointe $\\Rightarrow$ marginales (somme ou intégrale), pas l'inverse.</li><li>$\\Lambda$ symétrique positive ; $\\rho\\in[-1,1]$ ; indépendance $\\Rightarrow$ non-corrélation (équivalence si gaussien).</li><li>Indépendance $\\iff$ $F$ ou densité produit.</li><li>Densité de $T(X)$ : $f\\circ T^{-1}\\,|J_{T^{-1}}|$ ; somme indépendante : convolution des densités.</li><li>Conditionnelles $p(x|y)=p(x,y)/p_Y(y)$, Bayes ; $\\Esp[\\alpha(X,Y)]=\\Esp_X\\big[\\Esp_Y[\\alpha|X]\\big]$.</li><li>$AX+b\\sim\\mathcal N_p(Am+b,A\\Sigma A^\\top)$ ; blocs indépendants $\\iff\\Sigma_{12}=0$ ; $X_1|X_2=a\\sim\\mathcal N(m_1+\\Sigma_{12}\\Sigma_2^{-1}(a-m_2),\\Sigma_1-\\Sigma_{12}\\Sigma_2^{-1}\\Sigma_{12}^\\top)$.</li><li>$\\chi^2_n$ (moyenne $n$, variance $2n$), Student $X/\\sqrt{Y/n}$, Fisher $\\frac{X/n}{Y/m}$.</li></ul>",
+     "debut": 13,
+     "fin": 19,
      "partie": null,
      "sections": [
       {
        "titre": "Loi d'un vecteur aléatoire",
-       "page": 12
+       "page": 13
       },
       {
        "titre": "Espérance, covariance, corrélation",
-       "page": 13
+       "page": 14
       },
       {
        "titre": "Deux exemples",
-       "page": 13
+       "page": 14
       },
       {
        "titre": "Calculer avec plusieurs aléas",
-       "page": 14
+       "page": 15
+      },
+      {
+       "titre": "Vecteurs gaussiens : transformations et lois dérivées",
+       "page": 17
       }
      ],
      "methodes": [
       {
        "num": "3.1",
        "titre": "Loi de $X+Y$, $XY$, $X/Y$",
-       "page": 15
+       "page": 17
       }
      ],
      "pdf": "docs/probabilites/chapitre-03.pdf"
@@ -2753,29 +2757,33 @@ window.LC = {
      "intro": "La fonction caractéristique, transformée de Fourier d'une loi, caractérise celle-ci et transforme les sommes de variables indépendantes en produits. Elle permet d'établir les grands théorèmes limites : loi des grands nombres (la fréquence empirique converge vers la probabilité) et théorème central limite (les fluctuations sont gaussiennes).",
      "objectifs": "<ul><li>Calculer et utiliser la fonction caractéristique.</li><li>Connaître les modes de convergence (loi, $L^p$, probabilité, presque sûre) et leurs liens.</li><li>Énoncer et appliquer la loi des grands nombres et le théorème central limite.</li></ul>",
      "prerequis": "Chapitres 2 et 3 ; transformée de Fourier (livre <em>Intégration</em>, chapitre 4).",
-     "essentiel": "<ul><li>$\\varphi_X(t)=\\Esp e^{itX}$ caractérise la loi ; somme indépendante $\\to$ produit ; $\\varphi^{(k)}(0)=i^k\\Esp X^k$.</li><li>Loi (via $F$ ou Lévy) $\\Leftarrow$ probabilité $\\Leftarrow$ $L^1$ $\\Leftarrow$ $L^2$ ; p.s. $\\Rightarrow$ probabilité.</li><li>Markov, Bienaymé–Tchebychev.</li><li>LGN : $\\bar X_n\\to m$ (probabilité, p.s.) ; TCL : $\\sqrt n(\\bar X_n-m)/\\sigma\\to\\mathcal N(0,1)$ en loi.</li></ul>",
-     "debut": 16,
-     "fin": 19,
+     "essentiel": "<ul><li>$\\varphi_X(t)=\\Esp e^{itX}$ caractérise la loi ; somme indépendante $\\to$ produit ; $\\varphi^{(k)}(0)=i^k\\Esp X^k$.</li><li>Loi (via $F$ ou Lévy) $\\Leftarrow$ probabilité $\\Leftarrow$ $L^1$ $\\Leftarrow$ $L^2$ ; p.s. $\\Rightarrow$ probabilité.</li><li>Markov, Bienaymé–Tchebychev.</li><li>Inversion : $p(u)=\\frac1{2\\pi}\\int e^{-iut}\\varphi(t)\\dd t$ ; $p_n\\to p$ p.p. $\\Rightarrow$ loi ; $g$ continue préserve loi et probabilité.</li><li>LGN : $\\bar X_n\\to m$ (probabilité, p.s. ; $L^2$ si variance finie) ; TCL : $\\sqrt n(\\bar X_n-m)/\\sigma\\to\\mathcal N(0,1)$ en loi.</li><li>Monte-Carlo : $\\frac1n\\sum h(X_i)\\to\\int hf$ ; importance : $\\frac1n\\sum h\\frac fg(X_i)$, $X_i\\sim g$.</li></ul>",
+     "debut": 20,
+     "fin": 25,
      "partie": null,
      "sections": [
       {
        "titre": "Fonction caractéristique",
-       "page": 16
+       "page": 20
       },
       {
        "titre": "Modes de convergence",
-       "page": 17
+       "page": 21
       },
       {
        "titre": "Théorèmes limites",
-       "page": 18
+       "page": 22
+      },
+      {
+       "titre": "Méthodes de Monte-Carlo",
+       "page": 24
       }
      ],
      "methodes": [
       {
        "num": "4.1",
        "titre": "Identifier la loi d'une somme indépendante",
-       "page": 17
+       "page": 21
       }
      ],
      "pdf": "docs/probabilites/chapitre-04.pdf"
