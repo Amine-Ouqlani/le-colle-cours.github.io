@@ -2089,7 +2089,7 @@ window.LC = {
    "matiere": "physique",
    "titre": "Physique des matériaux",
    "description": "Équations de Maxwell dans la matière, diélectriques en régime statique et variable, sphères polarisée et aimantée, matériaux magnétiques.",
-   "pages": 43,
+   "pages": 44,
    "pdf": "docs/physique-des-materiaux.pdf",
    "fiche": "docs/physique-des-materiaux/fiche-revision.pdf",
    "chapitres": [
@@ -2188,7 +2188,7 @@ window.LC = {
       },
       {
        "titre": "Susceptibilité et permittivité",
-       "page": 16
+       "page": 17
       },
       {
        "titre": "Le condensateur plan",
@@ -2313,9 +2313,9 @@ window.LC = {
      "intro": "Trois familles de comportements, liées à la structure atomique : diamagnétisme, paramagnétisme, ferromagnétisme. On en déduit l'énergie et les pertes magnétiques, les deux approches de calcul du champ d'un aimant, et les conditions de passage.",
      "objectifs": "<ul><li>Distinguer dia-, para- et ferromagnétisme (signe et ordre de grandeur de $\\chi_m$).</li><li>Décrire le cycle d'hystérésis : saturation, rémanence, champ coercitif ; température de Curie, domaines de Weiss.</li><li>Calculer l'énergie magnétique, les pertes par hystérésis et dans un matériau linéaire.</li><li>Utiliser les approches ampérienne et coulombienne ; écrire les conditions de passage.</li></ul>",
      "prerequis": "Chapitre 6.",
-     "essentiel": "<ul><li>Dia : $\\chi_m&lt;0$, $|\\chi_m|\\sim10^{-6}$–$10^{-5}$ ; para : $\\chi_m&gt;0$, $\\lesssim10^{-3}$ ; ferro : $\\mu_r$ jusqu'à $10^4$–$10^5$, non linéaire, hystérésis ($M_s$, $M_r$, $H_c$), Curie (fer 770 °C), domaines de Weiss.</li><li>$\\diff u=\\V H\\cdot\\diff\\V B$ ; linéaire $u=\\tfrac12\\mu H^2$ ; hystérésis : pertes $=$ aire du cycle.</li><li>Linéaire à pertes : $\\moy{\\diff P/\\diff\\tau}=-\\tfrac12\\mu_0\\mu_r''\\omega H_0^2$.</li><li>Ampérienne : $\\V j_M$, $\\V j_{SM}$ ; coulombienne : $\\rho_m=-\\mu_0\\Div\\V M$, $\\sigma_m=\\mu_0\\V M\\cdot\\V n$, $\\V H=-\\grad V_m$.</li><li>Interface : $\\V H_{T2}-\\V H_{T1}=\\V J_S\\wedge\\V n_{1\\to2}$ ; $B_N$ continu.</li></ul>",
+     "essentiel": "<ul><li>Dia : $\\chi_m&lt;0$, $|\\chi_m|\\sim10^{-6}$–$10^{-5}$ ; para : $\\chi_m&gt;0$, $\\lesssim10^{-3}$ ; ferro : $\\mu_r$ jusqu'à $10^4$–$10^5$, non linéaire, hystérésis ($M_s$, $M_r$, $H_c$), Curie (fer 770 °C), domaines de Weiss.</li><li>$\\diff u=\\V H\\cdot\\diff\\V B$ ; linéaire $u=\\tfrac12\\mu H^2$ ; hystérésis : pertes $=$ aire du cycle.</li><li>Linéaire à pertes : $\\moy{\\diff P/\\diff\\tau}=-\\tfrac12\\mu_0\\mu_r''\\omega H_0^2$, $\\propto|\\mu_r''|$, $\\omega$, $H_0^2$ ($\\V B$ en retard sur $\\V H$) ; chauffage par induction.</li><li>Ampérienne : $\\V j_M$, $\\V j_{SM}$ ; coulombienne : $\\rho_m=-\\mu_0\\Div\\V M$, $\\sigma_m=\\mu_0\\V M\\cdot\\V n$, $\\V H=-\\grad V_m$.</li><li>Interface : $\\V H_{T2}-\\V H_{T1}=\\V J_S\\wedge\\V n_{1\\to2}$ ; $B_N$ continu.</li></ul>",
      "debut": 35,
-     "fin": 43,
+     "fin": 44,
      "partie": null,
      "sections": [
       {
@@ -2336,26 +2336,26 @@ window.LC = {
       },
       {
        "titre": "Calcul du champ créé par un volume aimanté",
-       "page": 38
-      },
-      {
-       "titre": "Conditions de passage",
-       "page": 38
-      },
-      {
-       "titre": "La sphère aimantée",
        "page": 39
       },
       {
-       "titre": "Résolution par le potentiel scalaire magnétique",
+       "titre": "Conditions de passage",
+       "page": 39
+      },
+      {
+       "titre": "La sphère aimantée",
        "page": 40
+      },
+      {
+       "titre": "Résolution par le potentiel scalaire magnétique",
+       "page": 41
       }
      ],
      "methodes": [
       {
        "num": "7.1",
        "titre": "Calculer $\\vec {H}$ par l'approche coulombienne",
-       "page": 41
+       "page": 42
       }
      ],
      "pdf": "docs/physique-des-materiaux/chapitre-07.pdf"
