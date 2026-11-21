@@ -965,19 +965,19 @@ window.LC = {
    "matiere": "numerique",
    "titre": "BE de logique : l'armoire à vidéoprojecteurs",
    "description": "Compte rendu des séances 1 et 2 : étapes, choix et obstacles rencontrés pour l'afficheur 7 segments (MA7) et le choix du vidéoprojecteur (MCV), puis ce qu'il faut pour la séance 3.",
-   "pages": 8,
+   "pages": 10,
    "pdf": "docs/be-logique-armoire.pdf",
    "fiche": null,
    "chapitres": [
     {
      "n": 1,
      "titre": "Séance 1 : l'afficheur 7 segments (MA7)",
-     "intro": "On a conçu un module qui affiche sur un afficheur 7 segments un chiffre codé en binaire, d'abord sur papier (TD), puis sous Quartus, puis sur la carte.",
-     "objectifs": "<ul><li>Afficher un chiffre de 0 à 9 donné sur 4 bits.</li><li>Segments 0 à 3 par équations, segments 4 à 6 par multiplexeurs (consigne du sujet).</li><li>Tester le module avec les interrupteurs de la carte.</li></ul>",
+     "intro": "Le premier module traduit un chiffre codé en binaire en l'état des sept segments d'un afficheur. On l'a conçu sur papier (table, Karnaugh), câblé sous Quartus, puis validé sur la carte.",
+     "objectifs": "<ul><li>Afficher un chiffre de 0 à 9 donné sur 4 bits.</li><li>Segments 0 à 3 par équations, 4 à 6 par multiplexeurs (consigne).</li><li>Valider le module avec les interrupteurs de la carte.</li></ul>",
      "prerequis": "Tables de vérité, Karnaugh, multiplexeur.",
-     "essentiel": "<ul><li>MA7 validé : chiffre 0 à 9 sur 4 bits, « E » pour 10 à 15, logique négative ($S_i=1$ : segment éteint).</li><li>$S_0$ à $S_3$ par Karnaugh ; $S_4$ à $S_6$ par mux 16 vers 1 ($D_k$ = valeur du segment pour $k$).</li><li>Leçons : gros point = liaison ; bit = fil fin nommé <code>A[i]</code> ; bus = fil épais <code>A[3..0]</code>.</li></ul>",
+     "essentiel": "<ul><li>MA7 validé : chiffre 0 à 9 sur 4 bits, « E » pour 10 à 15, logique négative ($S_i=1$ : segment éteint).</li><li>$S_0$ à $S_3$ par Karnaugh ; $S_4$ à $S_6$ par multiplexeur 16 vers 1 ($D_k$ = valeur du segment pour $k$).</li><li>Leçons Quartus : gros point = liaison ; un bit = fil fin nommé <code>A[i]</code> ; un groupe = fil épais <code>A[3..0]</code>.</li></ul>",
      "debut": 3,
-     "fin": 4,
+     "fin": 5,
      "partie": null,
      "sections": [
       {
@@ -995,21 +995,21 @@ window.LC = {
     {
      "n": 2,
      "titre": "Séance 2 : le choix du vidéoprojecteur (MCV)",
-     "intro": "On a réalisé un compteur/décompteur de 1 à 6 piloté par deux boutons, affiché grâce au MA7 de la séance 1. C'est le premier module séquentiel du BE.",
-     "objectifs": "<ul><li>KEY3 incrémente, KEY2 décrémente, KEY0 remet à 1, SW0 active le module.</li><li>Synthèse par machine à états codée 1 parmi $N$ avec des bascules D.</li><li>Brancher le MCV sur le MA7 et tester sur la carte.</li></ul>",
+     "intro": "Le deuxième module est le premier séquentiel : un compteur/décompteur de 1 à 6 piloté par deux boutons, dont le numéro s'affiche grâce au MA7. On l'a réalisé comme une machine à états avec des bascules D.",
+     "objectifs": "<ul><li>KEY3 incrémente, KEY2 décrémente, KEY0 remet à 1, SW0 active le module.</li><li>Synthèse par machine à états codée 1 parmi $N$.</li><li>Assembler MCV et MA7 et tester sur la carte.</li></ul>",
      "prerequis": "Séance 1 ; bascule D, machine à états.",
      "essentiel": "<ul><li>MCV : six bascules D, une par état ; $E_i^+=E_{i-1}P+E_{i+1}M+E_i\\,\\nb P\\,\\nb M$ ; sorties $S_0=E_1+E_3+E_5$, $S_1=E_2+E_3+E_6$, $S_2=E_4+E_5+E_6$.</li><li>Boutons via détecteur de front ; activation par <code>ENA</code> ; reset sur <code>PRN</code> de $E_1$ et <code>CLRN</code> des autres.</li><li>Pannes : espace dans un nom ; entrée non branchée = VCC ; reset via détecteur ; mauvaise horloge ; reset inversé.</li><li>Reste à faire : ajouter la porte <code>not</code>, vérifier, simuler et faire valider.</li></ul>",
-     "debut": 5,
-     "fin": 7,
+     "debut": 6,
+     "fin": 9,
      "partie": null,
      "sections": [
       {
        "titre": "Les étapes",
-       "page": 5
+       "page": 6
       },
       {
        "titre": "Les obstacles",
-       "page": 6
+       "page": 8
       }
      ],
      "methodes": [],
@@ -1018,21 +1018,21 @@ window.LC = {
     {
      "n": 3,
      "titre": "Pour la séance 3",
-     "intro": "La séance 3 porte sur le décompteur 20 s (MD20) et son afficheur (MA20), qui serviront dans BGC et BGS. Ce qu'il faut avoir réglé avant, et ce qu'on réutilise.",
+     "intro": "La séance 3 porte sur le décompteur 20 s (MD20) et son afficheur (MA20), qui serviront deux fois, dans BGC et dans BGS. Avant d'y aller, il faut finir le MCV ; ensuite, presque tout ce qu'on a appris se réutilise.",
      "objectifs": "",
      "prerequis": "",
-     "essentiel": "<ul><li>Avant la séance 3 : porte <code>not</code> sur le reset, simulation et validation du MCV, <code>ma7.bdf</code> ajouté au projet.</li><li>Une seule horloge (50 MHz) ; le signal 1 Hz sert de validation, pas d'horloge.</li><li>MA20 réutilisera deux MA7 ; MD20 réutilisera <code>PRN</code>/<code>CLRN</code> pour charger 20.</li></ul>",
-     "debut": 8,
-     "fin": 8,
+     "essentiel": "<ul><li>Avant la séance 3 : porte <code>not</code> sur le reset, simulation et validation du MCV, <code>ma7.bdf</code> ajouté au projet.</li><li>Une seule horloge (50 MHz) ; le signal 1 Hz sert de validation, pas d'horloge.</li><li>MA20 réutilisera deux MA7 ; MD20 réutilisera <code>ENA</code> et <code>PRN</code>/<code>CLRN</code> pour charger 20.</li></ul>",
+     "debut": 10,
+     "fin": 10,
      "partie": null,
      "sections": [
       {
        "titre": "À terminer avant",
-       "page": 8
+       "page": 10
       },
       {
        "titre": "Ce qu'on réutilise",
-       "page": 8
+       "page": 10
       }
      ],
      "methodes": [],
