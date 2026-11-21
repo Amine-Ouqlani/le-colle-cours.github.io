@@ -964,228 +964,79 @@ window.LC = {
    "id": "be-logique-armoire",
    "matiere": "numerique",
    "titre": "BE de logique : l'armoire à vidéoprojecteurs",
-   "description": "Carnet de bureau d'études : afficheur 7 segments, compteur/décompteur par machine à états, débogage sous Quartus et préparation du décompteur 20 s.",
-   "pages": 22,
+   "description": "Compte rendu des séances 1 et 2 : étapes, choix et obstacles rencontrés pour l'afficheur 7 segments (MA7) et le choix du vidéoprojecteur (MCV), puis ce qu'il faut pour la séance 3.",
+   "pages": 8,
    "pdf": "docs/be-logique-armoire.pdf",
-   "fiche": "docs/be-logique-armoire/fiche-revision.pdf",
+   "fiche": null,
    "chapitres": [
     {
      "n": 1,
-     "titre": "Le projet et la chaîne de travail",
-     "intro": "Avant de concevoir quoi que ce soit, il faut savoir où l'on va : ce que doit faire l'armoire, comment le problème a été découpé en morceaux testables séparément, et comment chaque morceau passe d'un schéma papier à une carte qui fonctionne.",
-     "objectifs": "<ul><li>Résumer le cahier des charges de l'armoire.</li><li>Situer chaque module dans le découpage en blocs (BGV, BGC, BGS) et dans le planning.</li><li>Connaître les ressources de la carte DE1-SoC utilisées.</li><li>Maîtriser la chaîne Quartus : schéma, symbole, page principale, compilation, programmation.</li></ul>",
-     "prerequis": "Aucun.",
-     "essentiel": "<ul><li>Armoire : choix du box (1 à 6), code en 20 s, serrure ouverte 20 s, reset général ; uniquement du séquentiel synchrone.</li><li>Blocs : BGV (MCV, MPAV, MA7), BGC (MCC, MD20, MA20), BGS (MCS, MD20, MA20), chef d'orchestre BCO.</li><li>Modules génériques : MA7 (chiffre 0 à 9), MD20 (20 à 0), MA20 (deux MA7).</li><li>Afficheurs <code>HEX</code> en logique négative : 0 allume.</li><li>Chaîne : <code>.bdf</code> du module, symbole (à mettre à jour), page principale, compilation, programmation (à refaire à chaque compilation), test.</li><li>Même nom = même fil (dans un fichier) ; bit : fil fin <code>A[i]</code> ; bus : fil épais <code>A[3..0]</code> ; ni espace ni accent ; une seule source par nom.</li></ul>",
-     "debut": 5,
-     "fin": 8,
+     "titre": "Séance 1 : l'afficheur 7 segments (MA7)",
+     "intro": "On a conçu un module qui affiche sur un afficheur 7 segments un chiffre codé en binaire, d'abord sur papier (TD), puis sous Quartus, puis sur la carte.",
+     "objectifs": "<ul><li>Afficher un chiffre de 0 à 9 donné sur 4 bits.</li><li>Segments 0 à 3 par équations, segments 4 à 6 par multiplexeurs (consigne du sujet).</li><li>Tester le module avec les interrupteurs de la carte.</li></ul>",
+     "prerequis": "Tables de vérité, Karnaugh, multiplexeur.",
+     "essentiel": "<ul><li>MA7 validé : chiffre 0 à 9 sur 4 bits, « E » pour 10 à 15, logique négative ($S_i=1$ : segment éteint).</li><li>$S_0$ à $S_3$ par Karnaugh ; $S_4$ à $S_6$ par mux 16 vers 1 ($D_k$ = valeur du segment pour $k$).</li><li>Leçons : gros point = liaison ; bit = fil fin nommé <code>A[i]</code> ; bus = fil épais <code>A[3..0]</code>.</li></ul>",
+     "debut": 3,
+     "fin": 4,
      "partie": null,
      "sections": [
       {
-       "titre": "Le cahier des charges",
-       "page": 5
+       "titre": "Les étapes",
+       "page": 3
       },
       {
-       "titre": "Le découpage en blocs et en modules",
-       "page": 5
-      },
-      {
-       "titre": "Le planning",
-       "page": 6
-      },
-      {
-       "titre": "La carte DE1-SoC",
-       "page": 6
-      },
-      {
-       "titre": "La chaîne de travail sous Quartus",
-       "page": 7
+       "titre": "Les obstacles",
+       "page": 4
       }
      ],
-     "methodes": [
-      {
-       "num": "1.1",
-       "titre": "Développer et tester un module",
-       "page": 7
-      },
-      {
-       "num": "1.2",
-       "titre": "Nommer sans se tromper",
-       "page": 8
-      }
-     ],
+     "methodes": [],
      "pdf": "docs/be-logique-armoire/chapitre-01.pdf"
     },
     {
      "n": 2,
-     "titre": "Séance 1 : l'afficheur 7 segments (MA7)",
-     "intro": "Premier module, entièrement combinatoire : traduire un chiffre codé en binaire en l'état de sept segments. C'est l'occasion de dérouler toute la méthode de synthèse (table, Karnaugh, schéma) et de découvrir Quartus.",
-     "objectifs": "<ul><li>Écrire la table des segments en logique négative.</li><li>Simplifier les sorties par Karnaugh.</li><li>Réaliser une fonction avec un multiplexeur 16 vers 1.</li><li>Implanter et tester un module combinatoire sur la carte.</li></ul>",
-     "prerequis": "Algèbre de Boole, tableaux de Karnaugh, multiplexeur.",
-     "essentiel": "<ul><li>MA7 : entrée $A_3A_2A_1A_0$, sorties $S_0$ à $S_6$ en logique négative (1 = éteint) ; 10 à 15 affichent « E ».</li><li>$S_0=\\nb{A_3}\\,\\nb{A_1}(A_2\\xor A_0)$ ; $S_1=A_3(A_2+A_1)+A_2(A_1\\xor A_0)$ ; $S_2=A_3(A_2+A_1)+\\nb{A_2}A_1\\nb{A_0}$.</li><li>$S_3=\\nb{A_3}\\,\\nb{A_2}\\,\\nb{A_1}A_0+\\nb{A_3}A_2\\nb{A_1}\\,\\nb{A_0}+\\nb{A_3}A_2A_1A_0$.</li><li>Multiplexeur $2^n$ vers 1 sélectionné par les variables : $D_k$ = valeur de la fonction pour $k$.</li><li>$S_4$ : 1 sur data1, 3, 4, 5, 7, 9 ; $S_5$ : data1, 2, 3, 7 ; $S_6$ : data0, 1, 7.</li><li>Jonction = liaison ; bit = fil fin avec crochets ; bus = fil épais.</li></ul>",
-     "debut": 9,
-     "fin": 12,
+     "titre": "Séance 2 : le choix du vidéoprojecteur (MCV)",
+     "intro": "On a réalisé un compteur/décompteur de 1 à 6 piloté par deux boutons, affiché grâce au MA7 de la séance 1. C'est le premier module séquentiel du BE.",
+     "objectifs": "<ul><li>KEY3 incrémente, KEY2 décrémente, KEY0 remet à 1, SW0 active le module.</li><li>Synthèse par machine à états codée 1 parmi $N$ avec des bascules D.</li><li>Brancher le MCV sur le MA7 et tester sur la carte.</li></ul>",
+     "prerequis": "Séance 1 ; bascule D, machine à états.",
+     "essentiel": "<ul><li>MCV : six bascules D, une par état ; $E_i^+=E_{i-1}P+E_{i+1}M+E_i\\,\\nb P\\,\\nb M$ ; sorties $S_0=E_1+E_3+E_5$, $S_1=E_2+E_3+E_6$, $S_2=E_4+E_5+E_6$.</li><li>Boutons via détecteur de front ; activation par <code>ENA</code> ; reset sur <code>PRN</code> de $E_1$ et <code>CLRN</code> des autres.</li><li>Pannes : espace dans un nom ; entrée non branchée = VCC ; reset via détecteur ; mauvaise horloge ; reset inversé.</li><li>Reste à faire : ajouter la porte <code>not</code>, vérifier, simuler et faire valider.</li></ul>",
+     "debut": 5,
+     "fin": 7,
      "partie": null,
      "sections": [
       {
-       "titre": "Spécification",
-       "page": 9
+       "titre": "Les étapes",
+       "page": 5
       },
       {
-       "titre": "La table des segments éteints",
-       "page": 9
-      },
-      {
-       "titre": "Segments 0 à 3 : équations par Karnaugh",
-       "page": 10
-      },
-      {
-       "titre": "Segments 4 à 6 : multiplexeurs 16 vers 1",
-       "page": 10
-      },
-      {
-       "titre": "Implantation et test",
-       "page": 11
-      },
-      {
-       "titre": "Les erreurs rencontrées",
-       "page": 11
+       "titre": "Les obstacles",
+       "page": 6
       }
      ],
-     "methodes": [
-      {
-       "num": "2.1",
-       "titre": "Obtenir l'équation d'un segment en logique négative",
-       "page": 10
-      },
-      {
-       "num": "2.2",
-       "titre": "Réaliser une sortie avec un multiplexeur 16 vers 1",
-       "page": 11
-      }
-     ],
+     "methodes": [],
      "pdf": "docs/be-logique-armoire/chapitre-02.pdf"
     },
     {
      "n": 3,
-     "titre": "Séance 2 : le choix du vidéoprojecteur (MCV)",
-     "intro": "Deuxième module, et premier système séquentiel : un compteur/décompteur de 1 à 6 piloté par deux boutons. On le synthétise comme une machine à états, avec des bascules D et un codage 1 parmi $N$. La séance s'est terminée par un long débogage sur la carte, dont les leçons servent pour toute la suite.",
-     "objectifs": "<ul><li>Comprendre pourquoi les boutons passent par un détecteur de front synchrone.</li><li>Synthétiser un compteur, puis un compteur/décompteur, par machine à états codée 1 parmi $N$.</li><li>Initialiser une machine à états avec les entrées <code>PRN</code> et <code>CLRN</code>.</li><li>Déboguer méthodiquement un montage qui ne réagit pas.</li></ul>",
-     "prerequis": "Chapitre 2 ; bascule D, machine à états.",
-     "essentiel": "<ul><li>Tout est cadencé par l'horloge 50 MHz ; un bouton passe par un détecteur de front : une impulsion d'une période par appui. Le reset, non.</li><li>Codage 1 parmi $N$ : une bascule D par état ; $E_i^+ = E_{i-1}P + E_{i+1}M + E_i\\,\\nb{P}\\,\\nb{M}$, avec rebouclage $6\\leftrightarrow1$.</li><li>Sorties : $S_0=E_1+E_3+E_5$, $S_1=E_2+E_3+E_6$, $S_2=E_4+E_5+E_6$, $S_3=0$.</li><li>Activation par l'entrée <code>ENA</code> des <code>dffe</code>.</li><li>Initialisation : <code>PRN</code> (force 1) sur $E_1$, <code>CLRN</code> (force 0) sur les autres ; actives à 0, asynchrones, prioritaires.</li><li>Pannes : entrée de bloc non branchée = VCC ; reset via détecteur = reset permanent ; mauvaise horloge = rien ne bouge ; reset inversé = marche seulement bouton appuyé.</li></ul>",
-     "debut": 13,
-     "fin": 18,
+     "titre": "Pour la séance 3",
+     "intro": "La séance 3 porte sur le décompteur 20 s (MD20) et son afficheur (MA20), qui serviront dans BGC et BGS. Ce qu'il faut avoir réglé avant, et ce qu'on réutilise.",
+     "objectifs": "",
+     "prerequis": "",
+     "essentiel": "<ul><li>Avant la séance 3 : porte <code>not</code> sur le reset, simulation et validation du MCV, <code>ma7.bdf</code> ajouté au projet.</li><li>Une seule horloge (50 MHz) ; le signal 1 Hz sert de validation, pas d'horloge.</li><li>MA20 réutilisera deux MA7 ; MD20 réutilisera <code>PRN</code>/<code>CLRN</code> pour charger 20.</li></ul>",
+     "debut": 8,
+     "fin": 8,
      "partie": null,
      "sections": [
       {
-       "titre": "Spécification",
-       "page": 13
+       "titre": "À terminer avant",
+       "page": 8
       },
       {
-       "titre": "Pourquoi un détecteur de front",
-       "page": 13
-      },
-      {
-       "titre": "La machine à états et le codage 1 parmi N",
-       "page": 14
-      },
-      {
-       "titre": "Les équations des bascules",
-       "page": 14
-      },
-      {
-       "titre": "Les sorties",
-       "page": 15
-      },
-      {
-       "titre": "L'activation",
-       "page": 15
-      },
-      {
-       "titre": "L'initialisation : PRN et CLRN",
-       "page": 15
-      },
-      {
-       "titre": "Implantation sous Quartus",
-       "page": 16
-      },
-      {
-       "titre": "Journal de débogage",
-       "page": 16
+       "titre": "Ce qu'on réutilise",
+       "page": 8
       }
      ],
-     "methodes": [
-      {
-       "num": "3.1",
-       "titre": "Écrire les équations d'une machine codée 1 parmi $N$",
-       "page": 14
-      },
-      {
-       "num": "3.2",
-       "titre": "Initialiser une machine à états",
-       "page": 16
-      },
-      {
-       "num": "3.3",
-       "titre": "Déboguer un montage qui ne réagit pas",
-       "page": 17
-      }
-     ],
+     "methodes": [],
      "pdf": "docs/be-logique-armoire/chapitre-03.pdf"
-    },
-    {
-     "n": 4,
-     "titre": "Vers la séance 3 : décompteur 20 s et afficheur",
-     "intro": "La séance 3 réalise les deux modules génériques qui serviront deux fois (BGC et BGS) : le décompteur de 20 secondes MD20 et son afficheur MA20. Ce chapitre fait le lien : ce qu'il faut terminer, ce qui se réutilise, et une proposition de conception à confronter au sujet de la séance.",
-     "objectifs": "<ul><li>Terminer et faire valider le MCV.</li><li>Identifier ce qui se réutilise des séances 1 et 2.</li><li>Concevoir un décompteur synchrone cadencé à 1 Hz.</li><li>Afficher un nombre de 0 à 20 sur deux chiffres avec deux MA7.</li></ul>",
-     "prerequis": "Chapitres 2 et 3.",
-     "essentiel": "<ul><li>Avant la séance 3 : <code>not</code> sur le reset, simulation et validation du MCV, <code>ma7.bdf</code> ajouté au projet.</li><li>Une seule horloge (50 MHz) ; la seconde est une impulsion de validation (tick) sur <code>ENA</code> ou dans les équations.</li><li>Décompteur binaire : $T_0=1$, $T_i=\\nb{Q_0}\\cdots\\nb{Q_{i-1}}$, $D_i=Q_i\\xor(v\\,T_i)$, $v=\\text{tick}\\cdot(Q\\neq0)$.</li><li>Charger 20 $=10100_2$ au reset : <code>PRN</code> sur $Q_4,Q_2$, <code>CLRN</code> sur $Q_3,Q_1,Q_0$.</li><li>MA20 : dizaines $d\\in\\{0,1,2\\}$, unités $u=Q-10d$, deux MA7.</li></ul>",
-     "debut": 19,
-     "fin": 22,
-     "partie": null,
-     "sections": [
-      {
-       "titre": "Ce qu'il reste à faire de la séance 2",
-       "page": 19
-      },
-      {
-       "titre": "Ce qui se réutilise",
-       "page": 19
-      },
-      {
-       "titre": "La base de temps : une seconde, sans changer d'horloge",
-       "page": 20
-      },
-      {
-       "titre": "MD20 : le décompteur 20 à 0",
-       "page": 20
-      },
-      {
-       "titre": "MA20 : afficher 20 à 00 sur deux chiffres",
-       "page": 21
-      },
-      {
-       "titre": "Check-list pour le début de la séance",
-       "page": 21
-      }
-     ],
-     "methodes": [
-      {
-       "num": "4.1",
-       "titre": "Cadencer une action à 1 Hz dans un système synchrone",
-       "page": 20
-      },
-      {
-       "num": "4.2",
-       "titre": "Synthétiser un décompteur binaire à bascules D",
-       "page": 20
-      },
-      {
-       "num": "4.3",
-       "titre": "Convertir 0 à 20 en BCD",
-       "page": 21
-      }
-     ],
-     "pdf": "docs/be-logique-armoire/chapitre-04.pdf"
     }
    ]
   },
