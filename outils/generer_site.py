@@ -27,6 +27,8 @@ LIVRES = [
      "Unités et incertitudes, instruments et mesures électriques, puissance en monophasé et systèmes triphasés."),
     (4, 'conception-systemes-logiques', 'numerique', 'Conception des systèmes logiques',
      "Algèbre de Boole, codage, logique CMOS, circuits combinatoires et séquentiels, mémoires et composants programmables."),
+    (14, 'be-logique-armoire', 'numerique', "BE de logique : l'armoire à vidéoprojecteurs",
+     "Carnet de bureau d'études : afficheur 7 segments, compteur/décompteur par machine à états, débogage sous Quartus et préparation du décompteur 20 s."),
     (10, 'architecture-assembleur', 'numerique', 'Architecture et programmation en assembleur',
      "Codage, architecture de Von Neumann, processeur EROS et micro-instructions, modes d'adressage, mémoire et décodage, interfaçage, interruptions."),
     (3, 'raffinage-algorithme', 'numerique', "Du raffinage à l'algorithme",
